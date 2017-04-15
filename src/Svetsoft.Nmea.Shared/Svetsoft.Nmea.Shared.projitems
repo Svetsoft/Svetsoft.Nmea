@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>7fcac41e-ce2c-4361-9a86-43ff5235f76a</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Svetsoft.Nmea</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Distance.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DistanceUnit.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ArrayExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Azimuth.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ChecksumMismatchException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DilutionOfPrecision.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DilutionOfPrecisionRating.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ListExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Fix.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FixMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FixPlane.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FixQuality.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Navigation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NavigationState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GpggaSentence.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GprmcSentence.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GpgllSentence.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GpgsaSentence.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\Int32Extensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Longitude.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Latitude.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LongitudeHemisphere.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LatitudeHemisphere.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Position.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sexagesimal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Elevation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GpgsvSentence.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NmeaSentence.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PseudoRandomNoise.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Satellite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SignalToNoiseRatio.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SignalToNoiseRatioRating.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\SingleExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Speed.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SpeedUnit.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\StringExtensions.cs" />
+  </ItemGroup>
+</Project>
