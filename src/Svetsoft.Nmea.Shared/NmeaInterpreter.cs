@@ -99,6 +99,9 @@ namespace Svetsoft.Nmea
         /// </summary>
         public SerialPort Port { get; }
 
+        /// <summary>
+        ///     Occurs when a sentence in NMEA format has been successfully parsed.
+        /// </summary>
         public event ParsedNmeaSentenceEvent ParsedNmeaSentence;
 
         /// <summary>
@@ -142,7 +145,7 @@ namespace Svetsoft.Nmea
         }
 
         /// <summary>
-        /// Handles the data received event of the <see cref="SerialPort"/> object.
+        ///     Handles the data received event of the <see cref="SerialPort" /> object.
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The event data.</param>
