@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Svetsoft.Geography.Positioning
+namespace Svetsoft.Nmea
 {
     /// <summary>
     ///     Represents a geographic coordinate that specifies a position in the latitudinal hemisphere.

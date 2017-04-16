@@ -1,4 +1,4 @@
-﻿namespace Svetsoft.Geography.Positioning
+﻿namespace Svetsoft.Nmea
 {
     /// <summary>
     ///     Indicates whether the navigation data is valid.

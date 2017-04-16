@@ -1,4 +1,4 @@
-﻿namespace Svetsoft.Geography.Positioning
+﻿namespace Svetsoft.Nmea
 {
     /// <summary>
     ///     Represents an artificial object that aids locating other objects via positioning systems.

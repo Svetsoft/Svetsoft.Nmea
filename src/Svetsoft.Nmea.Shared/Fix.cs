@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Svetsoft.Geography.Positioning
+namespace Svetsoft.Nmea
 {
     /// <summary>
     ///     Represents a set of methods that aid in determining the position of an object.

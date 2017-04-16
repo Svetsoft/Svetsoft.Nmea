@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Svetsoft.Geography.Positioning
+namespace Svetsoft.Nmea
 {
     /// <summary>
     ///     Represents a geographic location of an object.

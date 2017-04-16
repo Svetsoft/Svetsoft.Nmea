@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Svetsoft.Geography.Positioning
+namespace Svetsoft.Nmea
 {
     /// <summary>
     ///     Represents a numeric measurement with 60 as its base.

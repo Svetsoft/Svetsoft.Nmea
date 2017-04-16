@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Svetsoft.Geography.Positioning
+namespace Svetsoft.Nmea
 {
     /// <summary>
     ///     Represents a set of methods to aid determining the status of navigation.

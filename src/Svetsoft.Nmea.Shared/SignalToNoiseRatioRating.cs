@@ -1,4 +1,4 @@
-﻿namespace Svetsoft.Geography.Positioning
+﻿namespace Svetsoft.Nmea
 {
     /// <summary>
     ///     Indicates a description of the rating for a signal-to-noise ratio.

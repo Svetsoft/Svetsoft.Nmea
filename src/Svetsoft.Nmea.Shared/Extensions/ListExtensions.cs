@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Svetsoft.Geography.Positioning.Extensions
+namespace Svetsoft.Nmea.Extensions
 {
     internal static class ListExtensions
     {

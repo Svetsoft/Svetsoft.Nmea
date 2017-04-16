@@ -1,4 +1,4 @@
-﻿namespace Svetsoft.Geography.Positioning
+﻿namespace Svetsoft.Nmea
 {
     /// <summary>
     ///     Represents a rate at which an object moves.

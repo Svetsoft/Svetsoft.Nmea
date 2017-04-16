@@ -21,6 +21,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)FixMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FixPlane.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FixQuality.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MessageType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Navigation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NavigationState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GpggaSentence.cs" />
@@ -32,6 +33,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Latitude.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LongitudeHemisphere.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LatitudeHemisphere.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NmeaInterpreter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Position.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sexagesimal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Elevation.cs" />

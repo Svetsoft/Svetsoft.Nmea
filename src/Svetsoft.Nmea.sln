@@ -11,16 +11,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svetsoft.Nmea.Tests", "Svet
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svetsoft.Nmea.Net45", "Svetsoft.Nmea\Svetsoft.Nmea.Net45.csproj", "{E322A67E-6A2A-4A4D-975A-0899D97C4E2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svetsoft.Nmea.Portable", "Svetsoft.Nmea\Svetsoft.Nmea.Portable.csproj", "{959F7F85-C98B-4876-971A-9036224578E4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svetsoft.Nmea.Portable40", "Svetsoft.Nmea\Svetsoft.Nmea.Portable40.csproj", "{0EB32CD2-951D-40DF-9C7C-B40ED327D905}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svetsoft.Nmea.Examples", "Svetsoft.Nmea.Examples\Svetsoft.Nmea.Examples.csproj", "{649F45EC-13A9-41FF-A247-8488490818DF}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Svetsoft.Nmea.Shared\Svetsoft.Nmea.Shared.projitems*{0eb32cd2-951d-40df-9c7c-b40ed327d905}*SharedItemsImports = 4
 		Svetsoft.Nmea.Shared\Svetsoft.Nmea.Shared.projitems*{3fb6aa84-c16d-463c-9bad-bac6d8c234cd}*SharedItemsImports = 4
 		Svetsoft.Nmea.Shared\Svetsoft.Nmea.Shared.projitems*{7fcac41e-ce2c-4361-9a86-43ff5235f76a}*SharedItemsImports = 13
-		Svetsoft.Nmea.Shared\Svetsoft.Nmea.Shared.projitems*{959f7f85-c98b-4876-971a-9036224578e4}*SharedItemsImports = 4
 		Svetsoft.Nmea.Shared\Svetsoft.Nmea.Shared.projitems*{e322a67e-6a2a-4a4d-975a-0899d97c4e2c}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,14 +36,10 @@ Global
 		{E322A67E-6A2A-4A4D-975A-0899D97C4E2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E322A67E-6A2A-4A4D-975A-0899D97C4E2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E322A67E-6A2A-4A4D-975A-0899D97C4E2C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{959F7F85-C98B-4876-971A-9036224578E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{959F7F85-C98B-4876-971A-9036224578E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{959F7F85-C98B-4876-971A-9036224578E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{959F7F85-C98B-4876-971A-9036224578E4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0EB32CD2-951D-40DF-9C7C-B40ED327D905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0EB32CD2-951D-40DF-9C7C-B40ED327D905}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0EB32CD2-951D-40DF-9C7C-B40ED327D905}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0EB32CD2-951D-40DF-9C7C-B40ED327D905}.Release|Any CPU.Build.0 = Release|Any CPU
+		{649F45EC-13A9-41FF-A247-8488490818DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{649F45EC-13A9-41FF-A247-8488490818DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{649F45EC-13A9-41FF-A247-8488490818DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{649F45EC-13A9-41FF-A247-8488490818DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
