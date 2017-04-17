@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.26403.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Svetsoft.Nmea.Shared", "Svetsoft.Nmea.Shared\Svetsoft.Nmea.Shared.shproj", "{7FCAC41E-CE2C-4361-9A86-43FF5235F76A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svetsoft.Nmea.Net40", "Svetsoft.Nmea\Svetsoft.Nmea.Net40.csproj", "{3FB6AA84-C16D-463C-9BAD-BAC6D8C234CD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svetsoft.Nmea.Tests", "Svetsoft.Nmea.Tests\Svetsoft.Nmea.Tests.csproj", "{C4CF0315-73EC-4EB2-90DE-7235A91834AC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svetsoft.Nmea.Net45", "Svetsoft.Nmea\Svetsoft.Nmea.Net45.csproj", "{E322A67E-6A2A-4A4D-975A-0899D97C4E2C}"
@@ -15,7 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svetsoft.Nmea.Examples", "S
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Svetsoft.Nmea.Shared\Svetsoft.Nmea.Shared.projitems*{3fb6aa84-c16d-463c-9bad-bac6d8c234cd}*SharedItemsImports = 4
 		Svetsoft.Nmea.Shared\Svetsoft.Nmea.Shared.projitems*{7fcac41e-ce2c-4361-9a86-43ff5235f76a}*SharedItemsImports = 13
 		Svetsoft.Nmea.Shared\Svetsoft.Nmea.Shared.projitems*{e322a67e-6a2a-4a4d-975a-0899d97c4e2c}*SharedItemsImports = 4
 	EndGlobalSection
@@ -24,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3FB6AA84-C16D-463C-9BAD-BAC6D8C234CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3FB6AA84-C16D-463C-9BAD-BAC6D8C234CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3FB6AA84-C16D-463C-9BAD-BAC6D8C234CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3FB6AA84-C16D-463C-9BAD-BAC6D8C234CD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C4CF0315-73EC-4EB2-90DE-7235A91834AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C4CF0315-73EC-4EB2-90DE-7235A91834AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4CF0315-73EC-4EB2-90DE-7235A91834AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
