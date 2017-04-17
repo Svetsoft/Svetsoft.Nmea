@@ -50,7 +50,7 @@ namespace Svetsoft.Nmea
         public Azimuth Bearing { get; internal set; }
 
         /// <summary>
-        ///     Converts a GPRMC sentence to its <see cref="GprmcSentence" /> equivalent.
+        ///     Parses the fields of this sentence to its <see cref="GprmcSentence" /> equivalent.
         /// </summary>
         private void Parse()
         {

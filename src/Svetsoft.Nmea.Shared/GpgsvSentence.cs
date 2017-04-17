@@ -55,7 +55,7 @@ namespace Svetsoft.Nmea
         }
 
         /// <summary>
-        ///     Converts a GPGSV sentence to its <see cref="GpgsvSentence" /> equivalent.
+        ///     Parses the fields of this sentence to its <see cref="GpgsvSentence" /> equivalent.
         /// </summary>
         private void Parse()
         {

@@ -36,7 +36,7 @@ namespace Svetsoft.Nmea
         public Position Position { get; internal set; }
 
         /// <summary>
-        ///     Converts a GPGLL sentence to its <see cref="GpgllSentence" /> equivalent.
+        ///     Parses the fields of this sentence to its <see cref="GpgllSentence" /> equivalent.
         /// </summary>
         private void Parse()
         {

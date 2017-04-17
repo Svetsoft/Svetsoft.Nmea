@@ -36,9 +36,9 @@ namespace Svetsoft.Nmea
         public FixQuality FixQuality { get; internal set; }
 
         /// <summary>
-        ///     Returns the number of visible satellites in this cycle.
+        ///     Returns the number of satellites in view in this cycle.
         /// </summary>
-        public int VisibleSatellitesCount { get; internal set; }
+        public int SatellitesInViewCount { get; internal set; }
 
         /// <summary>
         ///     Returns the horizontal <see cref="DilutionOfPrecision" />.
@@ -67,7 +67,7 @@ namespace Svetsoft.Nmea
         public int? DifferentialGpsReferenceStationId { get; internal set; }
 
         /// <summary>
-        ///     Converts a GPGGA sentence to its <see cref="GpggaSentence" /> equivalent.
+        ///     Parses the fields of this sentence to its <see cref="GpggaSentence" /> equivalent.
         /// </summary>
         private void Parse()
         {
@@ -103,10 +103,10 @@ namespace Svetsoft.Nmea
                 FixQuality = Fix.ParseQuality(fields[5]);
             }
 
-            // Total number of visible satellites
+            // Total number of satellites in view
             if (fields.Length > 6 && !string.IsNullOrWhiteSpace(fields[6]))
             {
-                VisibleSatellitesCount = int.Parse(fields[6]);
+                SatellitesInViewCount = int.Parse(fields[6]);
             }
 
             // Horizontal Dilution of Precision

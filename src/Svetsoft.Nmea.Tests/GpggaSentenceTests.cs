@@ -44,7 +44,7 @@ namespace Svetsoft.Nmea.Tests
             Assert.AreEqual(8151.6838, gpggaSentence.Position.Longitude.Sexagesimal.Degrees);
             Assert.AreEqual(LongitudeHemisphere.West, gpggaSentence.Position.Longitude.Hemisphere);
             Assert.AreEqual(FixQuality.NoFix, gpggaSentence.FixQuality);
-            Assert.AreEqual(5, gpggaSentence.VisibleSatellitesCount);
+            Assert.AreEqual(5, gpggaSentence.SatellitesInViewCount);
             Assert.AreEqual(1.5, gpggaSentence.HorizontalDilutionOfPrecision.Value);
             Assert.AreEqual(DilutionOfPrecisionRating.Excellent, gpggaSentence.HorizontalDilutionOfPrecision.Rating);
             Assert.AreEqual(280.2, gpggaSentence.Altitude.Value);
