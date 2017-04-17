@@ -48,7 +48,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlmSentenceTests.cs" />
     <Compile Include="GpggaSentenceTests.cs" />
+    <Compile Include="AamSentenceTests.cs" />
     <Compile Include="GprmcSentenceTests.cs" />
     <Compile Include="GpgsaSentenceTests.cs" />
     <Compile Include="GpgllSentenceTests.cs" />

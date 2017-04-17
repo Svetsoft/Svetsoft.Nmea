@@ -9,6 +9,7 @@
     <Import_RootNamespace>Svetsoft.Nmea</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AlmSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Distance.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DistanceUnit.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ArrayExtensions.cs" />
@@ -21,6 +22,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)FixMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FixPlane.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FixQuality.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AamSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MessageType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Navigation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NavigationState.cs" />
