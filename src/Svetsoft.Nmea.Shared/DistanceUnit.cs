@@ -6,8 +6,13 @@
     public enum DistanceUnit
     {
         /// <summary>
-        ///     Metric System. 1/1000th of a kilometer.
+        ///     Base unit of length in the International System of Units.
         /// </summary>
-        Meters
+        Meters,
+
+        /// <summary>
+        ///     Unit of length also known as "Sea miles".
+        /// </summary>
+        NauticalMiles
     }
 }
