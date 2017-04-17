@@ -9,6 +9,7 @@ namespace Svetsoft.Nmea
     {
         protected const char DistanceUnitMetersDelimiter = 'M';
         protected const char DistanceUnitNauticalMilesDelimiter = 'N';
+        protected const char DistanceUnitKilometersDelimiter = 'K';
 
         /// <summary>
         ///     Creates a new instance of the <see cref="Distance" /> class.
@@ -51,6 +52,11 @@ namespace Svetsoft.Nmea
             if (value.Contains(DistanceUnitNauticalMilesDelimiter))
             {
                 return DistanceUnit.NauticalMiles;
+            }
+
+            if (value.Contains(DistanceUnitKilometersDelimiter))
+            {
+                return DistanceUnit.Kilometers;
             }
 
             throw new FormatException("Invalid distance unit format");

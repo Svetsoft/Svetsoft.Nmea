@@ -9,7 +9,10 @@
     <Import_RootNamespace>Svetsoft.Nmea</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)AlmSentence.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AbsoluteBearing.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Direction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sentences\ApaSentence.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sentences\AlmSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Distance.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DistanceUnit.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ArrayExtensions.cs" />
@@ -22,14 +25,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)FixMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FixPlane.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FixQuality.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)AamSentence.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sentences\AamSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MessageType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Navigation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NavigationState.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)GpggaSentence.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)GprmcSentence.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)GpgllSentence.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)GpgsaSentence.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sentences\GpggaSentence.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sentences\GprmcSentence.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sentences\GpgllSentence.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sentences\GpgsaSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\Int32Extensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Longitude.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Latitude.cs" />
@@ -39,7 +42,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Position.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sexagesimal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Elevation.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)GpgsvSentence.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sentences\GpgsvSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NmeaSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PseudoRandomNoise.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Satellite.cs" />
@@ -49,5 +52,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Speed.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SpeedUnit.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\StringExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SteeringDirection.cs" />
   </ItemGroup>
 </Project>

@@ -32,7 +32,7 @@ namespace Svetsoft.Nmea
         /// <summary>
         ///     Returns the name of the waypoint.
         /// </summary>
-        public string WaypointId { get; set; }
+        public string WaypointId { get; internal set; }
 
         /// <summary>
         ///     Returns the unit of radius.

@@ -58,7 +58,7 @@ namespace Svetsoft.Nmea
         /// <summary>
         ///     Returns the inclination angle.
         /// </summary>
-        public int InclinationAngle { get; set; }
+        public int InclinationAngle { get; internal set; }
 
         /// <summary>
         ///     Returns the almanac reference time.
@@ -83,7 +83,7 @@ namespace Svetsoft.Nmea
         /// <summary>
         ///     Returns the satellite's PRN number.
         /// </summary>
-        public PseudoRandomNoise SatellitePrn { get; set; }
+        public PseudoRandomNoise SatellitePrn { get; internal set; }
 
         /// <summary>
         ///     Returns the message number associated with this sentence.

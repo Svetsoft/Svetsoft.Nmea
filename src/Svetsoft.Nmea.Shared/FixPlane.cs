@@ -1,7 +1,7 @@
 ﻿namespace Svetsoft.Nmea
 {
     /// <summary>
-    ///     Represents whether a position fix is computed in a two-dimensional (2D) or three-dimensional (3D) plane.
+    ///     Indicates whether a position fix is computed in a two-dimensional (2D) or three-dimensional (3D) plane.
     /// </summary>
     public enum FixPlane
     {

@@ -13,6 +13,11 @@
         /// <summary>
         ///     Unit of length also known as "Sea miles".
         /// </summary>
-        NauticalMiles
+        NauticalMiles,
+
+        /// <summary>
+        ///     Unit of length in the International System of Units, equal to 1000 meters.
+        /// </summary>
+        Kilometers
     }
 }

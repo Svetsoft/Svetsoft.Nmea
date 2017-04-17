@@ -112,7 +112,7 @@ namespace Svetsoft.Nmea
                 Azimuth azimuth;
                 if (fields.Length > currentFieldIndex + 2 && !string.IsNullOrWhiteSpace(fields[currentFieldIndex + 2]))
                 {
-                    azimuth = Azimuth.Parse(fields[currentFieldIndex + 2]);
+                    azimuth = Azimuth.ParseAzimuth(fields[currentFieldIndex + 2]);
                 }
                 else
                 {

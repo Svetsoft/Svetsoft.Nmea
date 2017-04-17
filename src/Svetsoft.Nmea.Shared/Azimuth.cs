@@ -7,6 +7,9 @@ namespace Svetsoft.Nmea
     /// </summary>
     public class Azimuth
     {
+        private const char AbsoluteBearingMagneticDelimiter = 'M';
+        private const char AbsoluteBearingTrueDelimiter = 'T';
+
         /// <summary>
         ///     Represents the empty <see cref="Azimuth" />. This field is read-only.
         /// </summary>
@@ -27,11 +30,36 @@ namespace Svetsoft.Nmea
         public Sexagesimal Sexagesimal { get; }
 
         /// <summary>
+        ///     Converts a string to its <see cref="AbsoluteBearing" /> equivalent.
+        /// </summary>
+        /// <param name="value">A string containing a value to convert.</param>
+        /// <returns>The <see cref="AbsoluteBearing" /> equivalent of the string.</returns>
+        public static AbsoluteBearing ParseAbsoluteBearing(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new FormatException("Invalid absolute bearing format");
+            }
+
+            if (value.Contains(AbsoluteBearingMagneticDelimiter))
+            {
+                return AbsoluteBearing.Magnetic;
+            }
+
+            if (value.Contains(AbsoluteBearingTrueDelimiter))
+            {
+                return AbsoluteBearing.True;
+            }
+
+            throw new FormatException("Invalid absolute bearing format");
+        }
+
+        /// <summary>
         ///     Converts a string to its <see cref="Azimuth" /> equivalent.
         /// </summary>
         /// <param name="value">A string containing a value to convert.</param>
         /// <returns>The <see cref="Azimuth" /> equivalent of the string.</returns>
-        public static Azimuth Parse(string value)
+        public static Azimuth ParseAzimuth(string value)
         {
             if (string.IsNullOrWhiteSpace(value))
             {
@@ -64,7 +92,7 @@ namespace Svetsoft.Nmea
             result = default(Azimuth);
             try
             {
-                result = Parse(value);
+                result = ParseAzimuth(value);
                 return true;
             }
             catch
