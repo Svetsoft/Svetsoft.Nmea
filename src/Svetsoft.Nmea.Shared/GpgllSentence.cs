@@ -5,7 +5,7 @@ using System.Linq;
 namespace Svetsoft.Nmea
 {
     /// <summary>
-    ///     Represents a GPGLL sentence of the NMEA specification with details about geographic position (latitude/longitude)
+    ///     Represents a sentence of the NMEA specification about geographic position (latitude/longitude)
     ///     and time.
     /// </summary>
     public class GpgllSentence : NmeaSentence

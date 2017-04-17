@@ -5,8 +5,8 @@ using Svetsoft.Nmea.Extensions;
 namespace Svetsoft.Nmea
 {
     /// <summary>
-    ///     Represents a GPGGA sentence of the NMEA specification with details about geographic position (latitude/longitude)
-    ///     and time.
+    ///     Represents a sentence of the NMEA specification about Global Positioning System fix data. The sentence contains
+    ///     time, position and fix related data for a GPS receiver.
     /// </summary>
     public class GpggaSentence : NmeaSentence
     {

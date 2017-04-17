@@ -5,8 +5,7 @@ using Svetsoft.Nmea.Extensions;
 namespace Svetsoft.Nmea
 {
     /// <summary>
-    ///     Represents a GPRMC sentence of the NMEA specification with details about geographic position (latitude/longitude)
-    ///     and time.
+    ///     Represents a sentence of the NMEA specification about recommended minimum navigation information.
     /// </summary>
     public class GprmcSentence : NmeaSentence
     {

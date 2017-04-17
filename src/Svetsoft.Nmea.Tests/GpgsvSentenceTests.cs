@@ -43,40 +43,40 @@ namespace Svetsoft.Nmea.Tests
             // GPGSV-specific
             Assert.AreEqual(3, gpgsvSentence.MessagesCount);
             Assert.AreEqual(1, gpgsvSentence.MessageNumber);
-            Assert.AreEqual(11, gpgsvSentence.VisibleSatellitesCount);
-            Assert.AreEqual(4, gpgsvSentence.Satellites.Count);
+            Assert.AreEqual(11, gpgsvSentence.SatellitesInViewCount);
+            Assert.AreEqual(4, gpgsvSentence.SatellitesInView.Count);
 
             // 1st satellite
-            Assert.AreEqual("20", gpgsvSentence.Satellites[0].PseudoRandomNoise.Value);
-            Assert.AreEqual(20, gpgsvSentence.Satellites[0].PseudoRandomNoise.Number);
-            Assert.AreEqual(89, gpgsvSentence.Satellites[0].Elevation.Sexagesimal.Degrees);
-            Assert.AreEqual(172, gpgsvSentence.Satellites[0].Azimuth.Sexagesimal.Degrees);
-            Assert.AreEqual(SignalToNoiseRatioRating.Poor, gpgsvSentence.Satellites[0].SignalToNoiseRatio.Rating);
-            Assert.AreEqual(0, gpgsvSentence.Satellites[0].SignalToNoiseRatio.Value);
+            Assert.AreEqual("20", gpgsvSentence.SatellitesInView[0].PseudoRandomNoise.Value);
+            Assert.AreEqual(20, gpgsvSentence.SatellitesInView[0].PseudoRandomNoise.Number);
+            Assert.AreEqual(89, gpgsvSentence.SatellitesInView[0].Elevation.Sexagesimal.Degrees);
+            Assert.AreEqual(172, gpgsvSentence.SatellitesInView[0].Azimuth.Sexagesimal.Degrees);
+            Assert.AreEqual(SignalToNoiseRatioRating.Poor, gpgsvSentence.SatellitesInView[0].SignalToNoiseRatio.Rating);
+            Assert.AreEqual(0, gpgsvSentence.SatellitesInView[0].SignalToNoiseRatio.Value);
 
             // 2nd satellite
-            Assert.AreEqual("12", gpgsvSentence.Satellites[1].PseudoRandomNoise.Value);
-            Assert.AreEqual(12, gpgsvSentence.Satellites[1].PseudoRandomNoise.Number);
-            Assert.AreEqual(64, gpgsvSentence.Satellites[1].Elevation.Sexagesimal.Degrees);
-            Assert.AreEqual(158, gpgsvSentence.Satellites[1].Azimuth.Sexagesimal.Degrees);
-            Assert.AreEqual(SignalToNoiseRatioRating.Poor, gpgsvSentence.Satellites[1].SignalToNoiseRatio.Rating);
-            Assert.AreEqual(0, gpgsvSentence.Satellites[1].SignalToNoiseRatio.Value);
+            Assert.AreEqual("12", gpgsvSentence.SatellitesInView[1].PseudoRandomNoise.Value);
+            Assert.AreEqual(12, gpgsvSentence.SatellitesInView[1].PseudoRandomNoise.Number);
+            Assert.AreEqual(64, gpgsvSentence.SatellitesInView[1].Elevation.Sexagesimal.Degrees);
+            Assert.AreEqual(158, gpgsvSentence.SatellitesInView[1].Azimuth.Sexagesimal.Degrees);
+            Assert.AreEqual(SignalToNoiseRatioRating.Poor, gpgsvSentence.SatellitesInView[1].SignalToNoiseRatio.Rating);
+            Assert.AreEqual(0, gpgsvSentence.SatellitesInView[1].SignalToNoiseRatio.Value);
 
             // 3rd satellite
-            Assert.AreEqual("24", gpgsvSentence.Satellites[2].PseudoRandomNoise.Value);
-            Assert.AreEqual(24, gpgsvSentence.Satellites[2].PseudoRandomNoise.Number);
-            Assert.AreEqual(46, gpgsvSentence.Satellites[2].Elevation.Sexagesimal.Degrees);
-            Assert.AreEqual(335, gpgsvSentence.Satellites[2].Azimuth.Sexagesimal.Degrees);
-            Assert.AreEqual(SignalToNoiseRatioRating.Poor, gpgsvSentence.Satellites[2].SignalToNoiseRatio.Rating);
-            Assert.AreEqual(0, gpgsvSentence.Satellites[2].SignalToNoiseRatio.Value);
+            Assert.AreEqual("24", gpgsvSentence.SatellitesInView[2].PseudoRandomNoise.Value);
+            Assert.AreEqual(24, gpgsvSentence.SatellitesInView[2].PseudoRandomNoise.Number);
+            Assert.AreEqual(46, gpgsvSentence.SatellitesInView[2].Elevation.Sexagesimal.Degrees);
+            Assert.AreEqual(335, gpgsvSentence.SatellitesInView[2].Azimuth.Sexagesimal.Degrees);
+            Assert.AreEqual(SignalToNoiseRatioRating.Poor, gpgsvSentence.SatellitesInView[2].SignalToNoiseRatio.Rating);
+            Assert.AreEqual(0, gpgsvSentence.SatellitesInView[2].SignalToNoiseRatio.Value);
 
             // 4th satellite
-            Assert.AreEqual("15", gpgsvSentence.Satellites[3].PseudoRandomNoise.Value);
-            Assert.AreEqual(15, gpgsvSentence.Satellites[3].PseudoRandomNoise.Number);
-            Assert.AreEqual(38, gpgsvSentence.Satellites[3].Elevation.Sexagesimal.Degrees);
-            Assert.AreEqual(18, gpgsvSentence.Satellites[3].Azimuth.Sexagesimal.Degrees);
-            Assert.AreEqual(SignalToNoiseRatioRating.Poor, gpgsvSentence.Satellites[3].SignalToNoiseRatio.Rating);
-            Assert.AreEqual(0, gpgsvSentence.Satellites[3].SignalToNoiseRatio.Value);
+            Assert.AreEqual("15", gpgsvSentence.SatellitesInView[3].PseudoRandomNoise.Value);
+            Assert.AreEqual(15, gpgsvSentence.SatellitesInView[3].PseudoRandomNoise.Number);
+            Assert.AreEqual(38, gpgsvSentence.SatellitesInView[3].Elevation.Sexagesimal.Degrees);
+            Assert.AreEqual(18, gpgsvSentence.SatellitesInView[3].Azimuth.Sexagesimal.Degrees);
+            Assert.AreEqual(SignalToNoiseRatioRating.Poor, gpgsvSentence.SatellitesInView[3].SignalToNoiseRatio.Rating);
+            Assert.AreEqual(0, gpgsvSentence.SatellitesInView[3].SignalToNoiseRatio.Value);
         }
     }
 }

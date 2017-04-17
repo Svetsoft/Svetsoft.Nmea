@@ -5,8 +5,7 @@ using System.Collections.ObjectModel;
 namespace Svetsoft.Nmea
 {
     /// <summary>
-    ///     Represents a GPGSA sentence of the NMEA specification with details about dilution of precision and active
-    ///     satellites.
+    ///     Represents a sentence of the NMEA specification about dilution of precision and active satellites.
     /// </summary>
     public class GpgsaSentence : NmeaSentence
     {

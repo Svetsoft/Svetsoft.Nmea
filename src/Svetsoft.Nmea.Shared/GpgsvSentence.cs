@@ -5,12 +5,11 @@ using System.Collections.ObjectModel;
 namespace Svetsoft.Nmea
 {
     /// <summary>
-    ///     Represents a GPGSV sentence of the NMEA specification with details about visible satellites, including their
-    ///     signal-to-noise ratio.
+    ///     Represents a sentence of the NMEA specification about satellites in view.
     /// </summary>
     public class GpgsvSentence : NmeaSentence
     {
-        private readonly List<Satellite> _satellites;
+        private readonly List<Satellite> _satellitesInView;
 
         /// <summary>
         ///     Creates a new instance of the <see cref="GpgsvSentence" /> class.
@@ -19,16 +18,16 @@ namespace Svetsoft.Nmea
         public GpgsvSentence(string sentence)
             : base(sentence)
         {
-            _satellites = new List<Satellite>();
+            _satellitesInView = new List<Satellite>();
             Parse();
         }
 
         /// <summary>
-        ///     Returns the list of visible satellites.
+        ///     Returns the list of satellites in view.
         /// </summary>
-        public ReadOnlyCollection<Satellite> Satellites
+        public ReadOnlyCollection<Satellite> SatellitesInView
         {
-            get { return new ReadOnlyCollection<Satellite>(_satellites); }
+            get { return new ReadOnlyCollection<Satellite>(_satellitesInView); }
         }
 
         /// <summary>
@@ -44,15 +43,15 @@ namespace Svetsoft.Nmea
         /// <summary>
         ///     Returns the number of visible satellites in this cycle.
         /// </summary>
-        public int VisibleSatellitesCount { get; internal set; }
+        public int SatellitesInViewCount { get; internal set; }
 
         /// <summary>
         ///     Adds a <see cref="Satellite" /> to the end of the list,
         /// </summary>
         /// <param name="satellite">The <see cref="Satellite" /> to be added to the end of the list.</param>
-        internal void AddSatellite(Satellite satellite)
+        internal void AddSatelliteInView(Satellite satellite)
         {
-            _satellites.Add(satellite);
+            _satellitesInView.Add(satellite);
         }
 
         /// <summary>
@@ -75,7 +74,7 @@ namespace Svetsoft.Nmea
             // Total number of visible satellites
             if (!string.IsNullOrWhiteSpace(fields[2]))
             {
-                VisibleSatellitesCount = int.Parse(fields[2]);
+                SatellitesInViewCount = int.Parse(fields[2]);
             }
 
             // Satellites have an exact number of fields (e.g.: Pseudo-Random Number, Elevation, Azimuth and Serial-To-Noise Ratio)
@@ -132,7 +131,7 @@ namespace Svetsoft.Nmea
                 }
 
                 // Add the satellite
-                AddSatellite(new Satellite(pseudoRandomNoise, elevation, azimuth, signalToNoiseRatio));
+                AddSatelliteInView(new Satellite(pseudoRandomNoise, elevation, azimuth, signalToNoiseRatio));
             }
         }
     }
