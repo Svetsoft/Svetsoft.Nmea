@@ -110,7 +110,7 @@ namespace Svetsoft.Nmea
             // Arrival circle entered
             if (fields.Length > 5 && !string.IsNullOrWhiteSpace(fields[5]))
             {
-                IsArrivalCircleEntered = string.Equals(fields[1], TrueString, StringComparison.Ordinal);
+                IsArrivalCircleEntered = string.Equals(fields[5], TrueString, StringComparison.Ordinal);
             }
 
             // Perpendicular passed at waypoint

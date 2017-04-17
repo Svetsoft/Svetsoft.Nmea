@@ -96,7 +96,7 @@ namespace Svetsoft.Nmea
             // Bearing (Course)
             if (fields.Length > 7 && !string.IsNullOrWhiteSpace(fields[7]))
             {
-                Bearing = Azimuth.Parse(fields[7]);
+                Bearing = Azimuth.ParseAzimuth(fields[7]);
             }
 
             // Parse the UTC date
