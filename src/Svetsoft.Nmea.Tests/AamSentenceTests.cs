@@ -11,12 +11,12 @@ namespace Svetsoft.Nmea.Tests
         [TestMethod]
         public void ParseAamSentence()
         {
-            var gpgllSentence = new AamSentence("$GPAAM,A,A,0.10,N,WPTNME*32");
+            var sentence = new AamSentence("$GPAAM,A,A,0.10,N,WPTNME*32");
 
             // NmeaSentence (Inherited)
-            Assert.AreEqual("$GPAAM,A,A,0.10,N,WPTNME*32", gpgllSentence.Sentence);
-            Assert.AreEqual("GPAAM", gpgllSentence.MessageType);
-            Assert.AreEqual("32", gpgllSentence.Checksum);
+            Assert.AreEqual("$GPAAM,A,A,0.10,N,WPTNME*32", sentence.Sentence);
+            Assert.AreEqual("GPAAM", sentence.MessageType);
+            Assert.AreEqual("32", sentence.Checksum);
             CollectionAssert.AreEqual(new[]
             {
                 "A",
@@ -24,14 +24,14 @@ namespace Svetsoft.Nmea.Tests
                 "0.10",
                 "N",
                 "WPTNME"
-            }, gpgllSentence.Fields);
+            }, sentence.Fields);
 
             // AAM-specific
-            Assert.AreEqual(true, gpgllSentence.IsArrivalCircleEntered);
-            Assert.AreEqual(true, gpgllSentence.IsPerpendicularPassedAtWaypoint);
-            Assert.AreEqual(0.10, gpgllSentence.ArrivalCircleRadius);
-            Assert.AreEqual(DistanceUnit.NauticalMiles, gpgllSentence.RadiusUnit);
-            Assert.AreEqual("WPTNME", gpgllSentence.WaypointId);
+            Assert.AreEqual(true, sentence.IsArrivalCircleEntered);
+            Assert.AreEqual(true, sentence.IsPerpendicularPassedAtWaypoint);
+            Assert.AreEqual(0.10, sentence.ArrivalCircleRadius);
+            Assert.AreEqual(DistanceUnit.NauticalMiles, sentence.RadiusUnit);
+            Assert.AreEqual("WPTNME", sentence.WaypointId);
         }
     }
 }

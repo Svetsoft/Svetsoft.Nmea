@@ -12,12 +12,12 @@ namespace Svetsoft.Nmea.Tests
         [TestMethod]
         public void ParseGpgllSentence()
         {
-            var gpgllSentence = new GpgllSentence("$GPGLL,3751.65,S,14507.36,E,180133.35*7B");
+            var sentence = new GpgllSentence("$GPGLL,3751.65,S,14507.36,E,180133.35*7B");
 
             // NmeaSentence (Inherited)
-            Assert.AreEqual("$GPGLL,3751.65,S,14507.36,E,180133.35*7B", gpgllSentence.Sentence);
-            Assert.AreEqual("GPGLL", gpgllSentence.MessageType);
-            Assert.AreEqual("7B", gpgllSentence.Checksum);
+            Assert.AreEqual("$GPGLL,3751.65,S,14507.36,E,180133.35*7B", sentence.Sentence);
+            Assert.AreEqual("GPGLL", sentence.MessageType);
+            Assert.AreEqual("7B", sentence.Checksum);
             CollectionAssert.AreEqual(new[]
             {
                 "3751.65",
@@ -25,15 +25,15 @@ namespace Svetsoft.Nmea.Tests
                 "14507.36",
                 "E",
                 "180133.35"
-            }, gpgllSentence.Fields);
+            }, sentence.Fields);
 
             // GPGLL-specific
-            Assert.AreEqual(3751.65, gpgllSentence.Position.Latitude.Sexagesimal.Degrees);
-            Assert.AreEqual(LatitudeHemisphere.South, gpgllSentence.Position.Latitude.Hemisphere);
-            Assert.AreEqual(14507.36, gpgllSentence.Position.Longitude.Sexagesimal.Degrees);
-            Assert.AreEqual(LongitudeHemisphere.East, gpgllSentence.Position.Longitude.Hemisphere);
-            Assert.AreEqual(new TimeSpan(0, 18, 01, 33, 35000), gpgllSentence.UtcTime);
-            Assert.AreEqual(false, gpgllSentence.IsFix);
+            Assert.AreEqual(3751.65, sentence.Position.Latitude.Sexagesimal.Degrees);
+            Assert.AreEqual(LatitudeHemisphere.South, sentence.Position.Latitude.Hemisphere);
+            Assert.AreEqual(14507.36, sentence.Position.Longitude.Sexagesimal.Degrees);
+            Assert.AreEqual(LongitudeHemisphere.East, sentence.Position.Longitude.Hemisphere);
+            Assert.AreEqual(new TimeSpan(0, 18, 01, 33, 35000), sentence.UtcTime);
+            Assert.AreEqual(false, sentence.IsFix);
         }
     }
 }

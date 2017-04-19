@@ -12,12 +12,12 @@ namespace Svetsoft.Nmea.Tests
         [TestMethod]
         public void ParseGpggaSentence()
         {
-            var gpggaSentence = new GpggaSentence("$GPGGA,170834,4124.8963,N,08151.6838,W,1,05,1.5,280.2,M,-34.0,M,,,*59");
+            var sentence = new GpggaSentence("$GPGGA,170834,4124.8963,N,08151.6838,W,1,05,1.5,280.2,M,-34.0,M,,,*59");
 
             // NmeaSentence (Inherited)
-            Assert.AreEqual("$GPGGA,170834,4124.8963,N,08151.6838,W,1,05,1.5,280.2,M,-34.0,M,,,*59", gpggaSentence.Sentence);
-            Assert.AreEqual("GPGGA", gpggaSentence.MessageType);
-            Assert.AreEqual("59", gpggaSentence.Checksum);
+            Assert.AreEqual("$GPGGA,170834,4124.8963,N,08151.6838,W,1,05,1.5,280.2,M,-34.0,M,,,*59", sentence.Sentence);
+            Assert.AreEqual("GPGGA", sentence.MessageType);
+            Assert.AreEqual("59", sentence.Checksum);
             CollectionAssert.AreEqual(new[]
             {
                 "170834",
@@ -35,24 +35,24 @@ namespace Svetsoft.Nmea.Tests
                 "",
                 "",
                 ""
-            }, gpggaSentence.Fields);
+            }, sentence.Fields);
 
             // GPGGA-specific
-            Assert.AreEqual(new TimeSpan(17, 08, 34), gpggaSentence.UtcTime);
-            Assert.AreEqual(4124.8963, gpggaSentence.Position.Latitude.Sexagesimal.Degrees);
-            Assert.AreEqual(LatitudeHemisphere.North, gpggaSentence.Position.Latitude.Hemisphere);
-            Assert.AreEqual(8151.6838, gpggaSentence.Position.Longitude.Sexagesimal.Degrees);
-            Assert.AreEqual(LongitudeHemisphere.West, gpggaSentence.Position.Longitude.Hemisphere);
-            Assert.AreEqual(FixQuality.NoFix, gpggaSentence.FixQuality);
-            Assert.AreEqual(5, gpggaSentence.SatellitesInViewCount);
-            Assert.AreEqual(1.5, gpggaSentence.HorizontalDilutionOfPrecision.Value);
-            Assert.AreEqual(DilutionOfPrecisionRating.Excellent, gpggaSentence.HorizontalDilutionOfPrecision.Rating);
-            Assert.AreEqual(280.2, gpggaSentence.Altitude.Value);
-            Assert.AreEqual(DistanceUnit.Meters, gpggaSentence.Altitude.Unit);
-            Assert.AreEqual(-34.0, gpggaSentence.GeoidalSeparator.Value);
-            Assert.AreEqual(DistanceUnit.Meters, gpggaSentence.GeoidalSeparator.Unit);
-            Assert.IsNull(gpggaSentence.SecondsSinceLastDifferentialGpsSc104Update);
-            Assert.IsNull(gpggaSentence.DifferentialGpsReferenceStationId);
+            Assert.AreEqual(new TimeSpan(17, 08, 34), sentence.UtcTime);
+            Assert.AreEqual(4124.8963, sentence.Position.Latitude.Sexagesimal.Degrees);
+            Assert.AreEqual(LatitudeHemisphere.North, sentence.Position.Latitude.Hemisphere);
+            Assert.AreEqual(8151.6838, sentence.Position.Longitude.Sexagesimal.Degrees);
+            Assert.AreEqual(LongitudeHemisphere.West, sentence.Position.Longitude.Hemisphere);
+            Assert.AreEqual(FixQuality.NoFix, sentence.FixQuality);
+            Assert.AreEqual(5, sentence.SatellitesInViewCount);
+            Assert.AreEqual(1.5, sentence.HorizontalDilutionOfPrecision.Value);
+            Assert.AreEqual(DilutionOfPrecisionRating.Excellent, sentence.HorizontalDilutionOfPrecision.Rating);
+            Assert.AreEqual(280.2, sentence.Altitude.Value);
+            Assert.AreEqual(DistanceUnit.Meters, sentence.Altitude.Unit);
+            Assert.AreEqual(-34.0, sentence.GeoidalSeparator.Value);
+            Assert.AreEqual(DistanceUnit.Meters, sentence.GeoidalSeparator.Unit);
+            Assert.IsNull(sentence.SecondsSinceLastDifferentialGpsSc104Update);
+            Assert.IsNull(sentence.DifferentialGpsReferenceStationId);
         }
     }
 }

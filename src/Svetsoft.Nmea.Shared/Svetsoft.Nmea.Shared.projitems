@@ -10,7 +10,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)AbsoluteBearing.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Bearing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Direction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sentences\AutoPilotSentence.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sentences\ApbSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\ApaSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\AlmSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Distance.cs" />
@@ -43,7 +46,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Sexagesimal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Elevation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\GpgsvSentence.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)NmeaSentence.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sentences\NmeaSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PseudoRandomNoise.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Satellite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SignalToNoiseRatio.cs" />
