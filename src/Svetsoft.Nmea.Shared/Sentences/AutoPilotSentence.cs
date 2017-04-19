@@ -116,7 +116,7 @@ namespace Svetsoft.Nmea
             }
 
             // Bearing origin to destination
-            if (fields.Length > 7 && fields.All(Enumerable.Range(7, 2), s => !string.IsNullOrWhiteSpace(s)))
+            if (fields.Length > 8 && fields.All(Enumerable.Range(7, 2), s => !string.IsNullOrWhiteSpace(s)))
             {
                 BearingOriginToDestination = Bearing.Parse(fields.ToArray(7, 2));
             }
