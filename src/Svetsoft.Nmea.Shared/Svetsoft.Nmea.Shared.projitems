@@ -12,6 +12,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)AbsoluteBearing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Bearing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Direction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sentences\BodSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\AutoPilotSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\ApbSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\ApaSentence.cs" />
