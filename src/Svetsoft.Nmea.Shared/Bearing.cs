@@ -2,6 +2,9 @@
 
 namespace Svetsoft.Nmea
 {
+    /// <summary>
+    ///     Represents the direction or course of an object.
+    /// </summary>
     public class Bearing
     {
         private const char AbsoluteBearingMagneticDelimiter = 'M';
@@ -18,7 +21,14 @@ namespace Svetsoft.Nmea
             AbsoluteBearing = absoluteBearing;
         }
 
+        /// <summary>
+        ///     Returns the value this bearing represents.
+        /// </summary>
         public Azimuth Value { get; internal set; }
+
+        /// <summary>
+        ///     Returns the absolute value of this bearing.
+        /// </summary>
         public AbsoluteBearing AbsoluteBearing { get; internal set; }
 
         /// <summary>

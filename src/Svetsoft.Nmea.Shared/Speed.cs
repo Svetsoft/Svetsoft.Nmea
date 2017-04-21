@@ -1,10 +1,14 @@
-﻿namespace Svetsoft.Nmea
+﻿using System;
+
+namespace Svetsoft.Nmea
 {
     /// <summary>
     ///     Represents a rate at which an object moves.
     /// </summary>
     public class Speed
     {
+        private const char KnotsDelimiter = 'N';
+
         /// <summary>
         ///     Creates a new instance of the <see cref="Speed" /> class.
         /// </summary>
@@ -27,6 +31,16 @@
         public SpeedUnit Unit { get; }
 
         /// <summary>
+        ///     Converts a string to its value equivalent.
+        /// </summary>
+        /// <param name="value">A string containing a value to convert.</param>
+        /// <returns>The value equivalent of the string.</returns>
+        public static double ParseValue(string value)
+        {
+            return double.Parse(value);
+        }
+
+        /// <summary>
         ///     Converts a string to its <see cref="Speed" /> equivalent.
         /// </summary>
         /// <param name="unit">A <see cref="SpeedUnit" /> in which <paramref name="value" /> is represented.</param>
@@ -34,7 +48,42 @@
         /// <returns>The <see cref="Speed" /> equivalent of the string.</returns>
         public static Speed Parse(SpeedUnit unit, string value)
         {
-            return new Speed(unit, double.Parse(value));
+            return new Speed(unit, ParseValue(value));
+        }
+
+        /// <summary>
+        ///     Converts an array of string elements to its <see cref="Speed" /> equivalent.
+        /// </summary>
+        /// <param name="values">An array of string elements containing a value to convert.</param>
+        /// <returns>The <see cref="Speed" /> equivalent to the elements.</returns>
+        public static Speed Parse(string[] values)
+        {
+            if (values.Length != 2)
+            {
+                throw new FormatException("Invalid speed format");
+            }
+
+            return new Speed(ParseUnit(values[1]), ParseValue(values[0]));
+        }
+
+        /// <summary>
+        ///     Converts a string to its <see cref="SpeedUnit" /> equivalent.
+        /// </summary>
+        /// <param name="value">A string containing a value to convert.</param>
+        /// <returns>The <see cref="SpeedUnit" /> equivalent of the string.</returns>
+        public static SpeedUnit ParseUnit(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new FormatException("Invalid speed unit format");
+            }
+
+            if (value.Contains(KnotsDelimiter))
+            {
+                return SpeedUnit.Knots;
+            }
+
+            throw new FormatException("Invalid speed unit format");
         }
 
         /// <summary>

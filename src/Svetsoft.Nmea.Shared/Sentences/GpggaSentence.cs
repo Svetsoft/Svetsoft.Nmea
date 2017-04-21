@@ -21,7 +21,7 @@ namespace Svetsoft.Nmea
         }
 
         /// <summary>
-        ///     Returns the time of day of this position, expressed as the Coordinated Universal Time (UTC).
+        ///     Returns the time of day, expressed as the Coordinated Universal Time (UTC).
         /// </summary>
         public TimeSpan UtcTime { get; internal set; }
 
