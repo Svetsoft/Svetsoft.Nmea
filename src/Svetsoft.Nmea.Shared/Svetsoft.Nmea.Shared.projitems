@@ -12,6 +12,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)AbsoluteBearing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Bearing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Direction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sentences\AsdSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\BodSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\AutoPilotSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\ApbSentence.cs" />
@@ -33,6 +34,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)MessageType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Navigation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NavigationState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sentences\BecSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\GpggaSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\GprmcSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\GpgllSentence.cs" />
