@@ -7,9 +7,6 @@ namespace Svetsoft.Nmea
     /// </summary>
     public class Bearing
     {
-        private const char AbsoluteBearingMagneticDelimiter = 'M';
-        private const char AbsoluteBearingTrueDelimiter = 'T';
-
         /// <summary>
         ///     Creates a new instance of the <see cref="Bearing" /> class.
         /// </summary>
@@ -32,31 +29,6 @@ namespace Svetsoft.Nmea
         public AbsoluteBearing AbsoluteBearing { get; internal set; }
 
         /// <summary>
-        ///     Converts a string to its <see cref="AbsoluteBearing" /> equivalent.
-        /// </summary>
-        /// <param name="value">A string containing a value to convert.</param>
-        /// <returns>The <see cref="AbsoluteBearing" /> equivalent of the string.</returns>
-        public static AbsoluteBearing ParseAbsoluteBearing(string value)
-        {
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                throw new FormatException("Invalid absolute bearing format");
-            }
-
-            if (value.Contains(AbsoluteBearingMagneticDelimiter))
-            {
-                return AbsoluteBearing.Magnetic;
-            }
-
-            if (value.Contains(AbsoluteBearingTrueDelimiter))
-            {
-                return AbsoluteBearing.True;
-            }
-
-            throw new FormatException("Invalid absolute bearing format");
-        }
-
-        /// <summary>
         ///     Converts an array of string elements to its <see cref="Bearing" /> equivalent.
         /// </summary>
         /// <param name="values">An array of string elements containing a value to convert.</param>
@@ -68,7 +40,7 @@ namespace Svetsoft.Nmea
                 throw new FormatException("Invalid bearing format");
             }
 
-            return new Bearing(Azimuth.ParseAzimuth(values[0]), ParseAbsoluteBearing(values[1]));
+            return new Bearing(Azimuth.Parse(values[0]), AbsoluteBearing.Parse(values[1]));
         }
     }
 }

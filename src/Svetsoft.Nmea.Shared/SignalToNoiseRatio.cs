@@ -68,31 +68,5 @@
                         .Replace(DecibelIdentifier, string.Empty)
                         .Trim();
         }
-
-        /// <summary>
-        ///     Converts a signal-to-noise ratio value to its managed equivalent. A return value indicates whether the conversion
-        ///     succeeded.
-        /// </summary>
-        /// <param name="value">A string containing a value to convert.</param>
-        /// <param name="result">
-        ///     When this method returns, contains the <see cref="SignalToNoiseRatio" /> equivalent of the message
-        ///     contained in <paramref name="value" />, if the conversion succeeded or null if the conversion failed. The
-        ///     conversion fails if the <paramref name="value" /> parameter is null or is not of the correct format. This
-        ///     parameter is passed uninitialized; any value originally supplied in <paramref name="result" /> will be overwritten.
-        /// </param>
-        /// <returns><bold>true</bold> if <paramref name="value" /> was converted successfully; otherwise, <bold>false</bold>.</returns>
-        public static bool TryParse(string value, out SignalToNoiseRatio result)
-        {
-            result = default(SignalToNoiseRatio);
-            try
-            {
-                result = Parse(value);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
     }
 }

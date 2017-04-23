@@ -31,7 +31,7 @@ namespace Svetsoft.Nmea
         /// </summary>
         /// <param name="value">A string containing a value to convert.</param>
         /// <returns>The <see cref="Azimuth" /> equivalent of the string.</returns>
-        public static Azimuth ParseAzimuth(string value)
+        public static Azimuth Parse(string value)
         {
             if (string.IsNullOrWhiteSpace(value))
             {
@@ -45,31 +45,6 @@ namespace Svetsoft.Nmea
             catch (Exception ex)
             {
                 throw new ArgumentException("Invalid azimuth", ex);
-            }
-        }
-
-        /// <summary>
-        ///     Converts an azimuth value to its managed equivalent. A return value indicates whether the conversion succeeded.
-        /// </summary>
-        /// <param name="value">A string containing a value to convert.</param>
-        /// <param name="result">
-        ///     When this method returns, contains the <see cref="Azimuth" /> equivalent of the message
-        ///     contained in <paramref name="value" />, if the conversion succeeded or null if the conversion failed. The
-        ///     conversion fails if the <paramref name="value" /> parameter is null or is not of the correct format. This
-        ///     parameter is passed uninitialized; any value originally supplied in <paramref name="result" /> will be overwritten.
-        /// </param>
-        /// <returns><bold>true</bold> if <paramref name="value" /> was converted successfully; otherwise, <bold>false</bold>.</returns>
-        public static bool TryParse(string value, out Azimuth result)
-        {
-            result = default(Azimuth);
-            try
-            {
-                result = ParseAzimuth(value);
-                return true;
-            }
-            catch
-            {
-                return false;
             }
         }
     }

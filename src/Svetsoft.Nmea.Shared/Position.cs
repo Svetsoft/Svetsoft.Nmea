@@ -37,44 +37,16 @@ namespace Svetsoft.Nmea
         {
             if (values.Length != 4)
             {
-                throw new FormatException("Invalid position data format");
+                throw new FormatException($"{nameof(values)} is not in the correct format");
             }
 
             var sexagesimalLatitude = Sexagesimal.Parse(values[0]);
-            var latitudeHemisphere = Latitude.ParseHemisphere(values[1]);
+            var latitudeHemisphere = LatitudeHemisphere.Parse(values[1]);
 
             var sexagesimalLongitude = Sexagesimal.Parse(values[2]);
-            var longitudeHemisphere = Longitude.ParseHemisphere(values[3]);
+            var longitudeHemisphere = LongitudeHemisphere.Parse(values[3]);
 
             return new Position(new Latitude(sexagesimalLatitude, latitudeHemisphere), new Longitude(sexagesimalLongitude, longitudeHemisphere));
-        }
-
-        /// <summary>
-        ///     Converts a position to its managed equivalent. A return value indicates whether the conversion succeeded.
-        /// </summary>
-        /// <param name="values">An array of string elements containing a value to convert.</param>
-        /// <param name="result">
-        ///     When this method returns, contains the <see cref="Position" /> equivalent of the message
-        ///     contained in <paramref name="values" />, if the conversion succeeded or null if the conversion failed. The
-        ///     conversion fails if the <paramref name="values" /> parameter is null or is not of the correct format. This
-        ///     parameter is passed uninitialized; any value originally supplied in <paramref name="result" /> will be overwritten.
-        /// </param>
-        /// <returns>
-        ///     <bold>true</bold> if <paramref name="values" /> parameter was converted successfully; otherwise,
-        ///     <bold>false</bold>.
-        /// </returns>
-        public static bool TryParse(string[] values, out Position result)
-        {
-            result = default(Position);
-            try
-            {
-                result = Parse(values);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
         }
     }
 }

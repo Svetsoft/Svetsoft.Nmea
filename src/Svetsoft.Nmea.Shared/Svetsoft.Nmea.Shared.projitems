@@ -11,7 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)AbsoluteBearing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Bearing.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Direction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DifferentialData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\AsdSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\BodSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\AutoPilotSentence.cs" />
@@ -26,14 +26,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)DilutionOfPrecision.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DilutionOfPrecisionRating.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ListExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Fix.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FixMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FixPlane.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FixQuality.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\AamSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MessageType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Navigation.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)NavigationState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\BecSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\GpggaSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\GprmcSentence.cs" />
@@ -58,6 +55,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Speed.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SpeedUnit.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\StringExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Status.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SteeringDirection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Waypoint.cs" />
   </ItemGroup>
 </Project>

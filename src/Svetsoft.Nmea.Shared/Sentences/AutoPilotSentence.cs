@@ -1,17 +1,10 @@
-﻿using System;
-using System.Linq;
-using Svetsoft.Nmea.Extensions;
-
-namespace Svetsoft.Nmea
+﻿namespace Svetsoft.Nmea
 {
     /// <summary>
     ///     Represents a sentence of the NMEA specification about Autopilot.
     /// </summary>
     public abstract class AutoPilotSentence : NmeaSentence
     {
-        protected const string LoranCActiveDelimiter = "V";
-        protected const string TrueString = "A";
-
         /// <summary>
         ///     Creates a new instance of the <see cref="AutoPilotSentence" /> class.
         /// </summary>
@@ -19,22 +12,23 @@ namespace Svetsoft.Nmea
         protected AutoPilotSentence(string sentence)
             : base(sentence)
         {
+            Parse();
         }
 
         /// <summary>
         ///     Returns whether the arrival circle is entered.
         /// </summary>
-        public bool IsArrivalCircleEntered { get; internal set; }
+        public Status IsArrivalCircleEntered { get; internal set; }
 
         /// <summary>
         ///     Returns whether the waypoint is passed perpendicularly.
         /// </summary>
-        public bool IsPerpendicularPassedAtWaypoint { get; internal set; }
+        public Status IsPerpendicularPassedAtWaypoint { get; internal set; }
 
         /// <summary>
-        ///     Returns the name of the destination waypoint.
+        ///     Returns the destination waypoint.
         /// </summary>
-        public string DestinationWaypointId { get; internal set; }
+        public Waypoint DestinationWaypoint { get; internal set; }
 
         /// <summary>
         ///     Returns the bearing of origin to destination.
@@ -59,73 +53,27 @@ namespace Svetsoft.Nmea
         /// <summary>
         ///     Returns whether a Loran-C Cycle Lock device is used.
         /// </summary>
-        public bool IsLoranCCycleLockActive { get; internal set; }
+        public Status IsLoranCCycleLockActive { get; internal set; }
 
         /// <summary>
         ///     Returns whether a Loran-C Blink device is used.
         /// </summary>
-        public bool IsLoranCBlinkActive { get; internal set; }
+        public Status IsLoranCBlinkActive { get; internal set; }
 
         /// <summary>
         ///     Parses the fields of this sentence to its <see cref="AutoPilotSentence" /> equivalent.
         /// </summary>
-        protected virtual void Parse()
+        private void Parse()
         {
-            var fields = Fields;
-
-            // Loran-C Blink
-            if (fields.Length > 0 && !string.IsNullOrWhiteSpace(fields[0]))
-            {
-                IsLoranCBlinkActive = string.Equals(fields[0], LoranCActiveDelimiter, StringComparison.Ordinal);
-            }
-
-            // Loran-C Cycle Lock
-            if (fields.Length > 1 && !string.IsNullOrWhiteSpace(fields[1]))
-            {
-                IsLoranCCycleLockActive = string.Equals(fields[0], LoranCActiveDelimiter, StringComparison.Ordinal);
-            }
-
-            // Cross-track error magnitude
-            if (fields.Length > 2 && !string.IsNullOrWhiteSpace(fields[2]))
-            {
-                CrossTrackErrorMagnitude = double.Parse(fields[2]);
-            }
-
-            // Direction to steer
-            if (fields.Length > 3 && !string.IsNullOrWhiteSpace(fields[3]))
-            {
-                SteeringDirection = Direction.ParseSteeringDirection(fields[3]);
-            }
-
-            // Cross-track units
-            if (fields.Length > 4 && !string.IsNullOrWhiteSpace(fields[4]))
-            {
-                CrossTrackUnits = Distance.ParseUnit(fields[4]);
-            }
-
-            // Arrival circle entered
-            if (fields.Length > 5 && !string.IsNullOrWhiteSpace(fields[5]))
-            {
-                IsArrivalCircleEntered = string.Equals(fields[5], TrueString, StringComparison.Ordinal);
-            }
-
-            // Perpendicular passed at waypoint
-            if (fields.Length > 6 && !string.IsNullOrWhiteSpace(fields[6]))
-            {
-                IsPerpendicularPassedAtWaypoint = string.Equals(fields[6], TrueString, StringComparison.Ordinal);
-            }
-
-            // Bearing origin to destination
-            if (fields.Length > 8 && fields.All(Enumerable.Range(7, 2), s => !string.IsNullOrWhiteSpace(s)))
-            {
-                BearingOriginToDestination = Bearing.Parse(fields.ToArray(7, 2));
-            }
-
-            // Destination waypoint ID
-            if (fields.Length > 9 && !string.IsNullOrWhiteSpace(fields[9]))
-            {
-                DestinationWaypointId = fields[9];
-            }
+            IsLoranCBlinkActive = GetStatus(0);
+            IsLoranCCycleLockActive = GetStatus(1);
+            CrossTrackErrorMagnitude = GetDouble(2);
+            SteeringDirection = GetSteeringDirection(3);
+            CrossTrackUnits = GetDistanceUnit(4);
+            IsArrivalCircleEntered = GetStatus(5);
+            IsPerpendicularPassedAtWaypoint = GetStatus(6);
+            BearingOriginToDestination = GetBearing(7);
+            DestinationWaypoint = GetWaypoint(9);
         }
     }
 }

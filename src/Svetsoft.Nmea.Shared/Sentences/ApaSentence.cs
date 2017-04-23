@@ -15,7 +15,7 @@ namespace Svetsoft.Nmea
         public ApaSentence(string sentence)
             : base(sentence)
         {
-            Parse();
+            throw new NotImplementedException($"{nameof(ApaSentence)} is not implemented");
         }
     }
 }

@@ -15,6 +15,7 @@ namespace Svetsoft.Nmea
 
         protected const string CarriageReturnDelimiter = "\r";
         protected const string NewLineDelimiter = "\n";
+        protected const string TagPattern = @"^\${0},";
 
         private readonly List<MessageType> _messageTypes;
         private bool _isStarted;
@@ -175,7 +176,7 @@ namespace Svetsoft.Nmea
         {
             foreach (var messageType in _messageTypes)
             {
-                if (!Regex.IsMatch(value, $@"^\${messageType.Sentence},"))
+                if (!Regex.IsMatch(value, string.Format(TagPattern, messageType.Sentence)))
                 {
                     continue;
                 }

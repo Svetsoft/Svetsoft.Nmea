@@ -1,104 +1,193 @@
-﻿namespace Svetsoft.Nmea
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+
+namespace Svetsoft.Nmea
 {
     /// <summary>
-    ///     Indicates which devices are being used to obtain a fix, other than the GPS device itself.
+    ///     Represents which devices are used to obtain a fix, other than the GPS device itself.
     /// </summary>
-    public enum FixQuality
+    public struct FixQuality
     {
-        /// <summary>
-        ///     Not enough information is available to specify the current fix quality.
-        /// </summary>
-        Unknown,
+        private static readonly IList<FixQuality> InternalList = new[]
+        {
+            BeaconDifferentialGpsFix,
+            DifferentialGpsFix,
+            Estimated,
+            FixedRealTimeKinematic,
+            FloatRealTimeKinematic,
+            GpsFix,
+            HpXpOmniStar,
+            LocationRealTimeKinematic,
+            ManualInput,
+            Network2DFixedRealTimeKinematic,
+            Network2DFloatRealTimeKinematic,
+            Network3DFixedRealTimeKinematic,
+            Network3DFloatRealTimeKinematic,
+            NoFix,
+            PulsePerSecond,
+            SatelliteBasedAugmentationSystem,
+            Simulated,
+            Unknown,
+            VbsOmniStar
+        };
 
         /// <summary>
-        ///     No fix is obtained.
+        ///     Converts a string to its <see cref="FixQuality" /> equivalent.
         /// </summary>
-        NoFix,
+        /// <param name="value">A string containing a value to convert.</param>
+        /// <returns>The <see cref="FixQuality" /> equivalent of the string.</returns>
+        public static FixQuality Parse(string value)
+        {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new FormatException($"{nameof(value)} is not in the correct format");
+            }
+
+            var parsedValue = int.Parse(value);
+            foreach (var item in InternalList)
+            {
+                if (parsedValue == item.Value)
+                {
+                    return item;
+                }
+            }
+
+            throw new FormatException($"{nameof(value)} is not in the correct format");
+        }
 
         /// <summary>
-        ///     Fix is currently obtained using GPS satellites only.
+        ///     Returns a read-only list of supported devices to obtain a fix.
         /// </summary>
-        GpsFix,
+        public ReadOnlyCollection<FixQuality> List
+        {
+            get { return new ReadOnlyCollection<FixQuality>(InternalList); }
+        }
 
         /// <summary>
-        ///     Fix is obtained using both GPS satellites and Differential GPS/WAAS ground
-        ///     stations. Position error is as low as 0.5-5 meters.
+        ///     Returns the value that this fix quality represents.
         /// </summary>
-        DifferentialGpsFix,
+        internal int Value { get; }
 
         /// <summary>
-        ///     A PPS or pulse-per-second fix.
+        ///     Returns the name of the device used to obtain the fix.
         /// </summary>
-        PulsePerSecond,
+        internal string Name { get; }
 
         /// <summary>
-        ///     Fix is obtained with the assistance of a reference station. Position error is as low as 1-5 centimeters.
+        ///     Initializes a new instance of the <see cref="FixQuality" /> class.
         /// </summary>
-        FixedRealTimeKinematic,
+        /// <param name="name">The name of the device used to obtain the fix.</param>
+        /// <param name="value">The value that the fix quality represents.</param>
+        internal FixQuality(string name, int value)
+        {
+            Name = name;
+            Value = value;
+        }
 
         /// <summary>
-        ///     Fix is obtained with the assistance of a reference station. Position error is as low as 20cm to 1 meter.
+        ///     Represents that not enough information is available to specify the current fix quality. This field is read-only.
         /// </summary>
-        FloatRealTimeKinematic,
+        public static readonly FixQuality Unknown = new FixQuality("Unknown", 0);
 
         /// <summary>
-        ///     The fix is estimated.
+        ///     Represents that no fix is obtained. This field is read-only.
         /// </summary>
-        Estimated,
+        public static readonly FixQuality NoFix = new FixQuality("NoFix", 1);
 
         /// <summary>
-        ///     The fix is provided manually.
+        ///     Represents a fix obtained using GPS satellites only. This field is read-only.
         /// </summary>
-        ManualInput,
+        public static readonly FixQuality GpsFix = new FixQuality("GpsFix", 2);
 
         /// <summary>
-        ///     The fix is simulated.
+        ///     Represents a fix obtained using both GPS satellites and Differential GPS/WAAS ground
+        ///     stations. Position error is as low as 0.5-5 meters. This field is read-only.
         /// </summary>
-        Simulated,
+        public static readonly FixQuality DifferentialGpsFix = new FixQuality("DifferentialGpsFix", 3);
 
         /// <summary>
-        ///     The fix is based on Differential GPS but applies to wide area (WAAS/EGNOS and MSAS).
+        ///     Represents a PPS or pulse-per-second fix. This field is read-only.
         /// </summary>
-        SatelliteBasedAugmentationSystem,
+        public static readonly FixQuality PulsePerSecond = new FixQuality("PulsePerSecond", 4);
 
         /// <summary>
-        ///     RTK float or Location RTK mode 3D Network.
+        ///     Represents a fix obtained with the assistance of a reference station. Position error is as low as 1-5 centimeters.
+        ///     This field is read-only.
         /// </summary>
-        Network3DFloatRealTimeKinematic,
+        public static readonly FixQuality FixedRealTimeKinematic = new FixQuality("FixedRealTimeKinematic", 5);
 
         /// <summary>
-        ///     RTK fixed 3D Network.
+        ///     Represents a fix obtained with the assistance of a reference station. Position error is as low as 20cm to 1 meter.
+        ///     This field is read-only.
         /// </summary>
-        Network3DFixedRealTimeKinematic,
+        public static readonly FixQuality FloatRealTimeKinematic = new FixQuality("FloatRealTimeKinematic", 6);
 
         /// <summary>
-        ///     RTK float or Location RTK mode 2D Network.
+        ///     Represents an estimated fix. This field is read-only.
         /// </summary>
-        Network2DFloatRealTimeKinematic,
+        public static readonly FixQuality Estimated = new FixQuality("Estimated", 7);
 
         /// <summary>
-        ///     RTK fixed 2D Network.
+        ///     Represents a fix provided manually. This field is read-only.
         /// </summary>
-        Network2DFixedRealTimeKinematic,
+        public static readonly FixQuality ManualInput = new FixQuality("ManualInput", 8);
 
         /// <summary>
-        ///     Fix utilizes a global satellite monitoring network. Omnistar with XP is accurate in 3D to better than 30cm.
+        ///     Represents a simulated fix. This field is read-only.
         /// </summary>
-        HpXpOmniStar,
+        public static readonly FixQuality Simulated = new FixQuality("Simulated", 9);
 
         /// <summary>
-        ///     Fix is obtained using "sub-meter" level of service.
+        ///     Represents a fix based on Differential GPS but applies to wide area (WAAS/EGNOS and MSAS). This field is read-only.
         /// </summary>
-        VbsOmniStar,
+        public static readonly FixQuality SatelliteBasedAugmentationSystem = new FixQuality("SatelliteBasedAugmentationSystem", 10);
 
         /// <summary>
-        ///     Fix is obtained using Location RTK mode with horizontal accuracy of 10cm and vertical accuracy of 2cm.
+        ///     Represents a RTK float or Location RTK mode 3D Network. This field is read-only.
         /// </summary>
-        LocationRealTimeKinematic,
+        public static readonly FixQuality Network3DFloatRealTimeKinematic = new FixQuality("Network3DFloatRealTimeKinematic", 11);
 
         /// <summary>
-        ///     Beacon Differential GPS.
+        ///     Represents a RTK fixed 3D Network. This field is read-only.
         /// </summary>
-        BeaconDifferentialGpsFix
+        public static readonly FixQuality Network3DFixedRealTimeKinematic = new FixQuality("Network3DFixedRealTimeKinematic", 12);
+
+        /// <summary>
+        ///     Represents a RTK float or Location RTK mode 2D Network. This field is read-only.
+        /// </summary>
+        public static readonly FixQuality Network2DFloatRealTimeKinematic = new FixQuality("Network2DFloatRealTimeKinematic", 13);
+
+        /// <summary>
+        ///     Represents a RTK fixed 2D Network. This field is read-only.
+        /// </summary>
+        public static readonly FixQuality Network2DFixedRealTimeKinematic = new FixQuality("Network2DFixedRealTimeKinematic", 14);
+
+        /// <summary>
+        ///     Represents a fix that utilizes a global satellite monitoring network. Omnistar with XP is accurate in 3D to better
+        ///     than 30cm. This field is read-only.
+        /// </summary>
+        public static readonly FixQuality HpXpOmniStar = new FixQuality("HpXpOmniStar", 15);
+
+        /// <summary>
+        ///     Represents a fix obtained using "sub-meter" level of service. This field is read-only.
+        /// </summary>
+        public static readonly FixQuality VbsOmniStar = new FixQuality("VbsOmniStar", 16);
+
+        /// <summary>
+        ///     Represents a fix is obtained using Location RTK mode with horizontal accuracy of 10cm and vertical accuracy of 2cm.
+        ///     This field is read-only.
+        /// </summary>
+        public static readonly FixQuality LocationRealTimeKinematic = new FixQuality("LocationRealTimeKinematic", 17);
+
+        /// <summary>
+        ///     Represents a beacon Differential GPS. This field is read-only.
+        /// </summary>
+        public static readonly FixQuality BeaconDifferentialGpsFix = new FixQuality("BeaconDifferentialGpsFix", 18);
     }
 }

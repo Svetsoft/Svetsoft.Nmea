@@ -9,6 +9,8 @@ namespace Svetsoft.Nmea
     /// </summary>
     public class GpgsvSentence : NmeaSentence
     {
+        protected const int MaxSatellitesPerSentence = 6;
+        protected const int FieldsPerSatelliteCount = 4;
         private readonly List<Satellite> _satellitesInView;
 
         /// <summary>
@@ -46,12 +48,12 @@ namespace Svetsoft.Nmea
         public int SatellitesInViewCount { get; internal set; }
 
         /// <summary>
-        ///     Adds a <see cref="Satellite" /> to the end of the list,
+        ///     Adds <see cref="Satellite" /> elements of the specified collection to the end of the list.
         /// </summary>
-        /// <param name="satellite">The <see cref="Satellite" /> to be added to the end of the list.</param>
-        internal void AddSatelliteInView(Satellite satellite)
+        /// <param name="collection">The collection whose <see cref="Satellite" /> elements should be added to the end of the list.</param>
+        internal void AddSatellitesInViewRange(IEnumerable<Satellite> collection)
         {
-            _satellitesInView.Add(satellite);
+            _satellitesInView.AddRange(collection);
         }
 
         /// <summary>
@@ -65,74 +67,17 @@ namespace Svetsoft.Nmea
                 throw new FormatException("Invalid NMEA data format");
             }
 
-            // Total number of messages of this type in this cycle
-            MessagesCount = int.Parse(fields[0]);
-
-            // Message number
-            MessageNumber = int.Parse(fields[1]);
-
-            // Total number of visible satellites
-            if (!string.IsNullOrWhiteSpace(fields[2]))
-            {
-                SatellitesInViewCount = int.Parse(fields[2]);
-            }
+            MessagesCount = GetInt32(0);
+            MessageNumber = GetInt32(1);
+            SatellitesInViewCount = GetInt32(2);
 
             // Satellites have an exact number of fields (e.g.: Pseudo-Random Number, Elevation, Azimuth and Serial-To-Noise Ratio)
-            if ((fields.Length - (FieldsPerSatelliteCount + FieldsSkippedCount)) % FieldsPerSatelliteCount != 0)
+            if ((fields.Length - (FieldsPerSatelliteCount + 3)) % FieldsPerSatelliteCount != 0)
             {
                 throw new FormatException("Invalid NMEA data format");
             }
 
-            // Satellite details
-            for (var index = 0; index < MaximumSatellitesPerSentenceCount; index++)
-            {
-                var currentFieldIndex = index * FieldsPerSatelliteCount + FieldsSkippedCount;
-
-                // Validate that there are more fields to process
-                if (currentFieldIndex > fields.Length - 1)
-                {
-                    break;
-                }
-
-                // Parse the PRN that will uniquely identify the satellite
-                var pseudoRandomNoise = PseudoRandomNoise.Parse(fields[currentFieldIndex]);
-
-                // Verify that the elevation exits; otherwise use an empty value
-                Elevation elevation;
-                if (fields.Length > currentFieldIndex + 1 && !string.IsNullOrWhiteSpace(fields[currentFieldIndex + 1]))
-                {
-                    elevation = Elevation.Parse(fields[currentFieldIndex + 1]);
-                }
-                else
-                {
-                    elevation = Elevation.Empty;
-                }
-
-                // Verify that the azimuth exists; otherwise use an empty value
-                Azimuth azimuth;
-                if (fields.Length > currentFieldIndex + 2 && !string.IsNullOrWhiteSpace(fields[currentFieldIndex + 2]))
-                {
-                    azimuth = Azimuth.ParseAzimuth(fields[currentFieldIndex + 2]);
-                }
-                else
-                {
-                    azimuth = Azimuth.Empty;
-                }
-
-                // Verify that the SRN exists; otherwise use an empty value
-                SignalToNoiseRatio signalToNoiseRatio;
-                if (fields.Length > currentFieldIndex + 3 && !string.IsNullOrWhiteSpace(fields[currentFieldIndex + 3]))
-                {
-                    signalToNoiseRatio = SignalToNoiseRatio.Parse(fields[currentFieldIndex + 3]);
-                }
-                else
-                {
-                    signalToNoiseRatio = SignalToNoiseRatio.Empty;
-                }
-
-                // Add the satellite
-                AddSatelliteInView(new Satellite(pseudoRandomNoise, elevation, azimuth, signalToNoiseRatio));
-            }
+            AddSatellitesInViewRange(GetSatellitesInView(3, MaxSatellitesPerSentence));
         }
     }
 }

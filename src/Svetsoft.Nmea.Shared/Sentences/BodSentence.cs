@@ -1,7 +1,4 @@
-﻿using System.Linq;
-using Svetsoft.Nmea.Extensions;
-
-namespace Svetsoft.Nmea
+﻿namespace Svetsoft.Nmea
 {
     /// <summary>
     ///     Represents a sentence of the NMEA specification about Bearing - Waypoint to waypoint.
@@ -29,45 +26,24 @@ namespace Svetsoft.Nmea
         public Bearing MagneticBearing { get; set; }
 
         /// <summary>
-        ///     Returns the name of the destination waypoint.
+        ///     Returns the destination waypoint.
         /// </summary>
-        public string DestinationWaypointId { get; internal set; }
+        public Waypoint DestinationWaypoint { get; internal set; }
 
         /// <summary>
-        ///     Returns the name of the origin waypoint.
+        ///     Returns the origin waypoint.
         /// </summary>
-        public string OriginWaypointId { get; internal set; }
+        public Waypoint OriginWaypoint { get; internal set; }
 
         /// <summary>
         ///     Parses the fields of this sentence to its <see cref="BodSentence" /> equivalent.
         /// </summary>
         private void Parse()
         {
-            var fields = Fields;
-
-            // True bearing
-            if (fields.Length > 1 && fields.All(Enumerable.Range(0, 2), s => !string.IsNullOrWhiteSpace(s)))
-            {
-                TrueBearing = Bearing.Parse(fields.ToArray(0, 2));
-            }
-
-            // Magnetic bearing
-            if (fields.Length > 3 && fields.All(Enumerable.Range(2, 2), s => !string.IsNullOrWhiteSpace(s)))
-            {
-                MagneticBearing = Bearing.Parse(fields.ToArray(2, 2));
-            }
-
-            // Destination waypoint
-            if (fields.Length > 4 && !string.IsNullOrWhiteSpace(fields[4]))
-            {
-                DestinationWaypointId = fields[4];
-            }
-
-            // Origin waypoint
-            if (fields.Length > 5 && !string.IsNullOrWhiteSpace(fields[5]))
-            {
-                OriginWaypointId = fields[5];
-            }
+            TrueBearing = GetBearing(0);
+            MagneticBearing = GetBearing(2);
+            DestinationWaypoint = GetWaypoint(4);
+            OriginWaypoint = GetWaypoint(5);
         }
     }
 }

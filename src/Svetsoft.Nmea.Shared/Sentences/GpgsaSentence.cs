@@ -56,12 +56,12 @@ namespace Svetsoft.Nmea
         public DilutionOfPrecision VerticalDilutionOfPrecision { get; internal set; }
 
         /// <summary>
-        ///     Adds a <see cref="PseudoRandomNoise" /> to the end of the list,
+        ///     Adds <see cref="PseudoRandomNoise" /> elements of the specified collection to the end of the list.
         /// </summary>
-        /// <param name="pseudoRandomNoise">The <see cref="PseudoRandomNoise" /> to be added to the end of the list.</param>
-        internal void AddSatellite(PseudoRandomNoise pseudoRandomNoise)
+        /// <param name="collection">The collection whose <see cref="PseudoRandomNoise" /> elements should be added to the end of the list.</param>
+        internal void AddSatelliteRange(IEnumerable<PseudoRandomNoise> collection)
         {
-            _satellitePrns.Add(pseudoRandomNoise);
+            _satellitePrns.AddRange(collection);
         }
 
         /// <summary>
@@ -75,51 +75,12 @@ namespace Svetsoft.Nmea
                 throw new FormatException("Invalid NMEA data format");
             }
 
-            // Fix mode
-            if (!string.IsNullOrWhiteSpace(fields[0]))
-            {
-                FixMode = Fix.ParseMode(fields[0]);
-            }
-
-            // Fix plane
-            if (!string.IsNullOrWhiteSpace(fields[1]))
-            {
-                FixPlane = Fix.ParsePlane(fields[1]);
-            }
-
-            // Satellite PRN's
-            for (var index = 2; index < 14; index++)
-            {
-                // Skip PRN's that are not provided
-                if (string.IsNullOrWhiteSpace(fields[index]))
-                {
-                    continue;
-                }
-
-                // Parse the PRN that uniquely identifies the satellite
-                var pseudoRandomNoise = PseudoRandomNoise.Parse(fields[index]);
-
-                // Add the PRN
-                AddSatellite(pseudoRandomNoise);
-            }
-
-            // Position Dilution of Precision
-            if (!string.IsNullOrWhiteSpace(fields[14]))
-            {
-                PositionDilutionOfPrecision = DilutionOfPrecision.Parse(fields[14]);
-            }
-
-            // Horizontal Dilution of Precision
-            if (!string.IsNullOrWhiteSpace(fields[15]))
-            {
-                HorizontalDilutionOfPrecision = DilutionOfPrecision.Parse(fields[15]);
-            }
-
-            // Vertical Dilution of Precision
-            if (!string.IsNullOrWhiteSpace(fields[16]))
-            {
-                VerticalDilutionOfPrecision = DilutionOfPrecision.Parse(fields[16]);
-            }
+            FixMode = GetFixMode(0);
+            FixPlane = GetFixPlane(1);
+            AddSatelliteRange(GetPseudoRandomNoise(2, 14));
+            PositionDilutionOfPrecision = GetDilutionOfPrecision(14);
+            HorizontalDilutionOfPrecision = GetDilutionOfPrecision(15);
+            VerticalDilutionOfPrecision = GetDilutionOfPrecision(16);
         }
     }
 }

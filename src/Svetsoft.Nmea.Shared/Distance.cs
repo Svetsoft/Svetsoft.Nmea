@@ -7,10 +7,6 @@ namespace Svetsoft.Nmea
     /// </summary>
     public class Distance
     {
-        protected const char DistanceUnitMetersDelimiter = 'M';
-        protected const char DistanceUnitNauticalMilesDelimiter = 'N';
-        protected const char DistanceUnitKilometersDelimiter = 'K';
-
         /// <summary>
         ///     Creates a new instance of the <see cref="Distance" /> class.
         /// </summary>
@@ -33,97 +29,18 @@ namespace Svetsoft.Nmea
         public double Value { get; }
 
         /// <summary>
-        ///     Converts a string to its <see cref="DistanceUnit" /> equivalent.
+        ///     Converts an array of string elements to its <see cref="Distance" /> equivalent.
         /// </summary>
-        /// <param name="value">A string containing a value to convert.</param>
-        /// <returns>The <see cref="DistanceUnit" /> equivalent of the string.</returns>
-        public static DistanceUnit ParseUnit(string value)
+        /// <param name="values">An array of string elements containing a value to convert.</param>
+        /// <returns>The <see cref="Distance" /> equivalent to the elements.</returns>
+        public static Distance Parse(string[] values)
         {
-            if (string.IsNullOrWhiteSpace(value))
+            if (values.Length != 2)
             {
-                throw new FormatException("Invalid distance unit format");
+                throw new FormatException($"{nameof(values)} is not in the correct format");
             }
 
-            if (value.Contains(DistanceUnitMetersDelimiter))
-            {
-                return DistanceUnit.Meters;
-            }
-
-            if (value.Contains(DistanceUnitNauticalMilesDelimiter))
-            {
-                return DistanceUnit.NauticalMiles;
-            }
-
-            if (value.Contains(DistanceUnitKilometersDelimiter))
-            {
-                return DistanceUnit.Kilometers;
-            }
-
-            throw new FormatException("Invalid distance unit format");
-        }
-
-        /// <summary>
-        ///     Converts a distance unit value to its managed equivalent. A return value indicates whether the conversion
-        ///     succeeded.
-        /// </summary>
-        /// <param name="value">A string containing a value to convert.</param>
-        /// <param name="result">
-        ///     When this method returns, contains the <see cref="DistanceUnit" /> equivalent of the message
-        ///     contained in <paramref name="value" />, if the conversion succeeded or null if the conversion failed. The
-        ///     conversion fails if the <paramref name="value" /> parameter is null or is not of the correct format. This
-        ///     parameter is passed uninitialized; any value originally supplied in <paramref name="result" /> will be overwritten.
-        /// </param>
-        /// <returns><bold>true</bold> if <paramref name="value" /> was converted successfully; otherwise, <bold>false</bold>.</returns>
-        public static bool TryParseUnit(string value, out DistanceUnit result)
-        {
-            result = default(DistanceUnit);
-            try
-            {
-                result = ParseUnit(value);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        /// <summary>
-        ///     Converts a string to its <see cref="Distance" /> equivalent.
-        /// </summary>
-        /// <param name="unit">A <see cref="DistanceUnit" /> in which <paramref name="value" /> is represented.</param>
-        /// <param name="value">A string containing a value to convert.</param>
-        /// <returns>The <see cref="Distance" /> equivalent of the string.</returns>
-        public static Distance ParseDistance(DistanceUnit unit, string value)
-        {
-            return new Distance(unit, double.Parse(value));
-        }
-
-        /// <summary>
-        ///     Converts a distance value to its managed equivalent. A return value indicates whether the conversion
-        ///     succeeded.
-        /// </summary>
-        /// <param name="unit">A <see cref="DistanceUnit" /> in which <paramref name="value" /> is represented.</param>
-        /// <param name="value">A string containing a value to convert.</param>
-        /// <param name="result">
-        ///     When this method returns, contains the <see cref="Distance" /> equivalent of the message
-        ///     contained in <paramref name="value" />, if the conversion succeeded or null if the conversion failed. The
-        ///     conversion fails if the <paramref name="value" /> parameter is null or is not of the correct format. This
-        ///     parameter is passed uninitialized; any value originally supplied in <paramref name="result" /> will be overwritten.
-        /// </param>
-        /// <returns><bold>true</bold> if <paramref name="value" /> was converted successfully; otherwise, <bold>false</bold>.</returns>
-        public static bool TryParseDistance(DistanceUnit unit, string value, out Distance result)
-        {
-            result = default(Distance);
-            try
-            {
-                result = ParseDistance(unit, value);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+            return new Distance(DistanceUnit.Parse(values[1]), double.Parse(values[0]));
         }
     }
 }

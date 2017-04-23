@@ -5,48 +5,54 @@ using System.Collections.ObjectModel;
 namespace Svetsoft.Nmea
 {
     /// <summary>
-    ///     Represents the unit of rate at which an object moves.
+    ///     Represents the status of an NMEA object.
     /// </summary>
-    public struct SpeedUnit
+    public struct Status
     {
-        private static readonly IList<SpeedUnit> InternalList = new[]
+        private static readonly IList<Status> InternalList = new[]
         {
-            Knots
+            ActiveValue,
+            VoidValue
         };
 
         /// <summary>
-        ///     Returns a read-only list of speed units.
+        ///     Returns a read-only list of status.
         /// </summary>
-        public ReadOnlyCollection<SpeedUnit> List
+        public ReadOnlyCollection<Status> List
         {
-            get { return new ReadOnlyCollection<SpeedUnit>(InternalList); }
+            get { return new ReadOnlyCollection<Status>(InternalList); }
         }
 
         /// <summary>
-        ///     Returns the value that this speed unit represents.
+        ///     Returns the value that this status represents.
         /// </summary>
         internal string Value { get; }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="SpeedUnit" /> class.
+        ///     Initializes a new instance of the <see cref="Status" /> class.
         /// </summary>
-        /// <param name="value">The value that the speed unit represents.</param>
-        internal SpeedUnit(string value)
+        /// <param name="value">The value that the status represents.</param>
+        internal Status(string value)
         {
             Value = value;
         }
 
         /// <summary>
-        ///     The unit is represented as one nautical mile per hour.
+        ///     Represents the active value of a <see cref="Status" />. This field is read-only.
         /// </summary>
-        public static readonly SpeedUnit Knots = new SpeedUnit("N");
+        public static readonly Status ActiveValue = new Status("A");
 
         /// <summary>
-        ///     Converts a string to its <see cref="SpeedUnit" /> equivalent.
+        ///     Represents the void value of a <see cref="Status" />. This field is read-only.
+        /// </summary>
+        public static readonly Status VoidValue = new Status("V");
+
+        /// <summary>
+        ///     Converts a string to its <see cref="Status" /> equivalent.
         /// </summary>
         /// <param name="value">A string containing a value to convert.</param>
-        /// <returns>The <see cref="DistanceUnit" /> equivalent of the string.</returns>
-        public static SpeedUnit Parse(string value)
+        /// <returns>The <see cref="Status" /> equivalent of the string.</returns>
+        public static Status Parse(string value)
         {
             if (value == null)
             {

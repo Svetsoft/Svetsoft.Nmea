@@ -7,8 +7,6 @@ namespace Svetsoft.Nmea
     /// </summary>
     public class Speed
     {
-        private const char KnotsDelimiter = 'N';
-
         /// <summary>
         ///     Creates a new instance of the <see cref="Speed" /> class.
         /// </summary>
@@ -35,7 +33,7 @@ namespace Svetsoft.Nmea
         /// </summary>
         /// <param name="value">A string containing a value to convert.</param>
         /// <returns>The value equivalent of the string.</returns>
-        public static double ParseValue(string value)
+        public static double Parse(string value)
         {
             return double.Parse(value);
         }
@@ -48,7 +46,7 @@ namespace Svetsoft.Nmea
         /// <returns>The <see cref="Speed" /> equivalent of the string.</returns>
         public static Speed Parse(SpeedUnit unit, string value)
         {
-            return new Speed(unit, ParseValue(value));
+            return new Speed(unit, Parse(value));
         }
 
         /// <summary>
@@ -63,54 +61,7 @@ namespace Svetsoft.Nmea
                 throw new FormatException("Invalid speed format");
             }
 
-            return new Speed(ParseUnit(values[1]), ParseValue(values[0]));
-        }
-
-        /// <summary>
-        ///     Converts a string to its <see cref="SpeedUnit" /> equivalent.
-        /// </summary>
-        /// <param name="value">A string containing a value to convert.</param>
-        /// <returns>The <see cref="SpeedUnit" /> equivalent of the string.</returns>
-        public static SpeedUnit ParseUnit(string value)
-        {
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                throw new FormatException("Invalid speed unit format");
-            }
-
-            if (value.Contains(KnotsDelimiter))
-            {
-                return SpeedUnit.Knots;
-            }
-
-            throw new FormatException("Invalid speed unit format");
-        }
-
-        /// <summary>
-        ///     Converts a speed value to its managed equivalent. A return value indicates whether the conversion
-        ///     succeeded.
-        /// </summary>
-        /// <param name="unit">A <see cref="SpeedUnit" /> in which <paramref name="value" /> is represented.</param>
-        /// <param name="value">A string containing a value to convert.</param>
-        /// <param name="result">
-        ///     When this method returns, contains the <see cref="Speed" /> equivalent of the message
-        ///     contained in <paramref name="value" />, if the conversion succeeded or null if the conversion failed. The
-        ///     conversion fails if the <paramref name="value" /> parameter is null or is not of the correct format. This
-        ///     parameter is passed uninitialized; any value originally supplied in <paramref name="result" /> will be overwritten.
-        /// </param>
-        /// <returns><bold>true</bold> if <paramref name="value" /> was converted successfully; otherwise, <bold>false</bold>.</returns>
-        public static bool TryParse(SpeedUnit unit, string value, out Speed result)
-        {
-            result = default(Speed);
-            try
-            {
-                result = Parse(unit, value);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+            return new Speed(SpeedUnit.Parse(values[1]), Parse(values[0]));
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace Svetsoft.Nmea
 {
@@ -8,8 +7,6 @@ namespace Svetsoft.Nmea
     /// </summary>
     public class AlmSentence : NmeaSentence
     {
-        public readonly DateTime WeekNumberStartDate = new DateTime(1980, 01, 06);
-
         /// <summary>
         ///     Creates a new instance of the <see cref="AlmSentence" /> class.
         /// </summary>
@@ -76,7 +73,7 @@ namespace Svetsoft.Nmea
         public int SatelliteHealth { get; internal set; }
 
         /// <summary>
-        ///     Returns the Global Positioning System week number since <see cref="WeekNumberStartDate" />.
+        ///     Returns the Global Positioning System week number since <see cref="NmeaSentence.DateTimeBase" />.
         /// </summary>
         public double WeekNumber { get; internal set; }
 
@@ -100,97 +97,21 @@ namespace Svetsoft.Nmea
         /// </summary>
         private void Parse()
         {
-            var fields = Fields;
-
-            // Total number of messages of this type in this cycle
-            if (fields.Length > 0 && !string.IsNullOrWhiteSpace(fields[0]))
-            {
-                MessagesCount = int.Parse(fields[0]);
-            }
-
-            // Message number
-            if (fields.Length > 1 && !string.IsNullOrWhiteSpace(fields[1]))
-            {
-                MessageNumber = int.Parse(fields[1]);
-            }
-
-            // Satellite PRN number
-            if (fields.Length > 2 && !string.IsNullOrWhiteSpace(fields[2]))
-            {
-                SatellitePrn = PseudoRandomNoise.Parse(fields[2]);
-            }
-
-            // GPS week number
-            if (fields.Length > 3 && !string.IsNullOrWhiteSpace(fields[3]))
-            {
-                WeekNumber = double.Parse(fields[3]);
-            }
-
-            // SV health
-            if (fields.Length > 4 && !string.IsNullOrWhiteSpace(fields[4]))
-            {
-                SatelliteHealth = int.Parse(fields[4], NumberStyles.HexNumber);
-            }
-
-            // Eccentricity
-            if (fields.Length > 5 && !string.IsNullOrWhiteSpace(fields[5]))
-            {
-                Eccentricity = int.Parse(fields[5], NumberStyles.HexNumber);
-            }
-
-            // Almanac reference time
-            if (fields.Length > 6 && !string.IsNullOrWhiteSpace(fields[6]))
-            {
-                AlmanacReferenceTime = int.Parse(fields[6], NumberStyles.HexNumber);
-            }
-
-            // Inclination angle
-            if (fields.Length > 7 && !string.IsNullOrWhiteSpace(fields[7]))
-            {
-                InclinationAngle = int.Parse(fields[7], NumberStyles.HexNumber);
-            }
-
-            // Rate of right ascension
-            if (fields.Length > 8 && !string.IsNullOrWhiteSpace(fields[8]))
-            {
-                RightAscensionRate = int.Parse(fields[8], NumberStyles.HexNumber);
-            }
-
-            // Root of semi-major axis
-            if (fields.Length > 9 && !string.IsNullOrWhiteSpace(fields[9]))
-            {
-                SemiMajorAxisRoot = int.Parse(fields[9], NumberStyles.HexNumber);
-            }
-
-            // Argument of perigee
-            if (fields.Length > 10 && !string.IsNullOrWhiteSpace(fields[10]))
-            {
-                PerigeeArgument = int.Parse(fields[10], NumberStyles.HexNumber);
-            }
-
-            // Longitude of ascension node
-            if (fields.Length > 11 && !string.IsNullOrWhiteSpace(fields[11]))
-            {
-                AscensionNodeLongitude = int.Parse(fields[11], NumberStyles.HexNumber);
-            }
-
-            // Mean anomaly
-            if (fields.Length > 12 && !string.IsNullOrWhiteSpace(fields[12]))
-            {
-                MeanAnomaly = int.Parse(fields[12], NumberStyles.HexNumber);
-            }
-
-            // F0 clock parameter
-            if (fields.Length > 13 && !string.IsNullOrWhiteSpace(fields[13]))
-            {
-                F0ClockParameter = int.Parse(fields[13], NumberStyles.HexNumber);
-            }
-
-            // F1 clock parameter
-            if (fields.Length > 14 && !string.IsNullOrWhiteSpace(fields[14]))
-            {
-                F1ClockParameter = int.Parse(fields[14], NumberStyles.HexNumber);
-            }
+            MessagesCount = GetInt32(0);
+            MessageNumber = GetInt32(1);
+            SatellitePrn = GetPseudoRandomNoise(2);
+            WeekNumber = GetDouble(3);
+            SatelliteHealth = GetInt32(4, NumberStyles.HexNumber);
+            Eccentricity = GetInt32(5, NumberStyles.HexNumber);
+            AlmanacReferenceTime = GetInt32(6, NumberStyles.HexNumber);
+            InclinationAngle = GetInt32(7, NumberStyles.HexNumber);
+            RightAscensionRate = GetInt32(8, NumberStyles.HexNumber);
+            SemiMajorAxisRoot = GetInt32(9, NumberStyles.HexNumber);
+            PerigeeArgument = GetInt32(10, NumberStyles.HexNumber);
+            AscensionNodeLongitude = GetInt32(11, NumberStyles.HexNumber);
+            MeanAnomaly = GetInt32(12, NumberStyles.HexNumber);
+            F0ClockParameter = GetInt32(13, NumberStyles.HexNumber);
+            F1ClockParameter = GetInt32(14, NumberStyles.HexNumber);
         }
     }
 }
