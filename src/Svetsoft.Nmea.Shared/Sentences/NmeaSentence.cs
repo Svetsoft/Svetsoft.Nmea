@@ -209,7 +209,7 @@ namespace Svetsoft.Nmea
         /// <returns>The value of the specified index.</returns>
         protected int GetInt32(int index, NumberStyles style)
         {
-            return Fields.Length > index && !string.IsNullOrWhiteSpace(Fields[index]) ? int.Parse(Fields[index]) : default(int);
+            return Fields.Length > index && !string.IsNullOrWhiteSpace(Fields[index]) ? int.Parse(Fields[index], style) : default(int);
         }
 
         /// <summary>
