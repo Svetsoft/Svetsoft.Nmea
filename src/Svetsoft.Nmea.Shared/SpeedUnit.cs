@@ -9,10 +9,18 @@ namespace Svetsoft.Nmea
     /// </summary>
     public struct SpeedUnit
     {
-        private static readonly IList<SpeedUnit> InternalList = new[]
+        static SpeedUnit()
         {
-            Knots
-        };
+            if (InternalList == null)
+            {
+                InternalList = new[]
+                {
+                    Knots
+                };
+            }
+        }
+
+        private static readonly IList<SpeedUnit> InternalList;
 
         /// <summary>
         ///     Returns a read-only list of speed units.

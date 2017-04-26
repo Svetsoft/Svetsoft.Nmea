@@ -9,11 +9,19 @@ namespace Svetsoft.Nmea
     /// </summary>
     public struct SteeringDirection
     {
-        private static readonly IList<SteeringDirection> InternalList = new[]
+        static SteeringDirection()
         {
-            Left,
-            Right
-        };
+            if (InternalList == null)
+            {
+                InternalList = new[]
+                {
+                    Left,
+                    Right
+                };
+            }
+        }
+
+        private static readonly IList<SteeringDirection> InternalList;
 
         /// <summary>
         ///     Returns a read-only list of steering directions.

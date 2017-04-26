@@ -9,11 +9,19 @@ namespace Svetsoft.Nmea
     /// </summary>
     public class AbsoluteBearing
     {
-        private static readonly IList<AbsoluteBearing> InternalList = new[]
+        static AbsoluteBearing()
         {
-            Magnetic,
-            True
-        };
+            if (InternalList == null)
+            {
+                InternalList = new[]
+                {
+                    Magnetic,
+                    True
+                };
+            }
+        }
+
+        private static readonly IList<AbsoluteBearing> InternalList;
 
         /// <summary>
         ///     Represents the navigation measured in relation to magnetic north.

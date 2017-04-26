@@ -9,12 +9,20 @@ namespace Svetsoft.Nmea
     /// </summary>
     public struct DistanceUnit
     {
-        private static readonly IList<DistanceUnit> InternalList = new[]
+        static DistanceUnit()
         {
-            Meters,
-            NauticalMiles,
-            Kilometers
-        };
+            if (InternalList == null)
+            {
+                InternalList = new[]
+                {
+                    Meters,
+                    NauticalMiles,
+                    Kilometers
+                };
+            }
+        }
+
+        private static readonly IList<DistanceUnit> InternalList;
 
         /// <summary>
         ///     Returns a read-only list of distance units.

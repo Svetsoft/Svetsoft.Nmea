@@ -10,11 +10,19 @@ namespace Svetsoft.Nmea
     /// </summary>
     public struct FixMode
     {
-        private static readonly IList<FixMode> InternalList = new[]
+        static FixMode()
         {
-            Automatic,
-            Manual
-        };
+            if (InternalList == null)
+            {
+                InternalList = new[]
+                {
+                    Automatic,
+                    Manual
+                };
+            }
+        }
+
+        private static readonly IList<FixMode> InternalList;
 
         /// <summary>
         ///     Returns a read-only list of fix modes.

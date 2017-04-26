@@ -9,11 +9,19 @@ namespace Svetsoft.Nmea
     /// </summary>
     public struct LatitudeHemisphere
     {
-        private static readonly IList<LatitudeHemisphere> InternalList = new[]
+        static LatitudeHemisphere()
         {
-            North,
-            South
-        };
+            if (InternalList == null)
+            {
+                InternalList = new[]
+                {
+                    North,
+                    South
+                };
+            }
+        }
+
+        private static readonly IList<LatitudeHemisphere> InternalList;
 
         /// <summary>
         ///     Returns a read-only list of hemispheres.

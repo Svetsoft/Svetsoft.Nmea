@@ -9,28 +9,36 @@ namespace Svetsoft.Nmea
     /// </summary>
     public struct FixQuality
     {
-        private static readonly IList<FixQuality> InternalList = new[]
+        static FixQuality()
         {
-            BeaconDifferentialGpsFix,
-            DifferentialGpsFix,
-            Estimated,
-            FixedRealTimeKinematic,
-            FloatRealTimeKinematic,
-            GpsFix,
-            HpXpOmniStar,
-            LocationRealTimeKinematic,
-            ManualInput,
-            Network2DFixedRealTimeKinematic,
-            Network2DFloatRealTimeKinematic,
-            Network3DFixedRealTimeKinematic,
-            Network3DFloatRealTimeKinematic,
-            NoFix,
-            PulsePerSecond,
-            SatelliteBasedAugmentationSystem,
-            Simulated,
-            Unknown,
-            VbsOmniStar
-        };
+            if (InternalList == null)
+            {
+                InternalList = new[]
+                {
+                    BeaconDifferentialGpsFix,
+                    DifferentialGpsFix,
+                    Estimated,
+                    FixedRealTimeKinematic,
+                    FloatRealTimeKinematic,
+                    GpsFix,
+                    HpXpOmniStar,
+                    LocationRealTimeKinematic,
+                    ManualInput,
+                    Network2DFixedRealTimeKinematic,
+                    Network2DFloatRealTimeKinematic,
+                    Network3DFixedRealTimeKinematic,
+                    Network3DFloatRealTimeKinematic,
+                    NoFix,
+                    PulsePerSecond,
+                    SatelliteBasedAugmentationSystem,
+                    Simulated,
+                    Unknown,
+                    VbsOmniStar
+                };
+            }
+        }
+
+        private static readonly IList<FixQuality> InternalList;
 
         /// <summary>
         ///     Converts a string to its <see cref="FixQuality" /> equivalent.

@@ -9,12 +9,17 @@ namespace Svetsoft.Nmea
     /// </summary>
     public struct FixPlane
     {
-        private static readonly IList<FixPlane> InternalList = new[]
+        static FixPlane()
         {
-            NotAvailable,
-            TwoDimensional,
-            ThreeDimensional
-        };
+            InternalList = new[]
+            {
+                NotAvailable,
+                TwoDimensional,
+                ThreeDimensional
+            };
+        }
+
+        private static readonly IList<FixPlane> InternalList;
 
         /// <summary>
         ///     Returns a read-only list of supported planes of a fix.

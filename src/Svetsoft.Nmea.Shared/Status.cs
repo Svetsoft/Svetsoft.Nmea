@@ -7,13 +7,21 @@ namespace Svetsoft.Nmea
     /// <summary>
     ///     Represents the status of an NMEA object.
     /// </summary>
-    public struct Status
+    public class Status
     {
-        private static readonly IList<Status> InternalList = new[]
+        static Status()
         {
-            ActiveValue,
-            VoidValue
-        };
+            if (InternalList == null)
+            {
+                InternalList = new[]
+                {
+                    ActiveValue,
+                    VoidValue
+                };
+            }
+        }
+
+        private static readonly IList<Status> InternalList;
 
         /// <summary>
         ///     Returns a read-only list of status.
