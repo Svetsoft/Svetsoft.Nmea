@@ -34,14 +34,14 @@ namespace Svetsoft.Nmea.Tests
             }, sentence.Fields);
 
             // GPRMC-specific
-            Assert.AreEqual(NavigationState.Valid, sentence.NavigationState);
+            Assert.AreEqual(Status.ActiveValue, sentence.NavigationState);
             Assert.AreEqual(3751.65, sentence.Position.Latitude.Sexagesimal.Degrees);
             Assert.AreEqual(LatitudeHemisphere.South, sentence.Position.Latitude.Hemisphere);
             Assert.AreEqual(14507.36, sentence.Position.Longitude.Sexagesimal.Degrees);
             Assert.AreEqual(LongitudeHemisphere.East, sentence.Position.Longitude.Hemisphere);
             Assert.AreEqual(0.0, sentence.Speed.Value);
             Assert.AreEqual(SpeedUnit.Knots, sentence.Speed.Unit);
-            Assert.AreEqual(360.0, sentence.Bearing.Sexagesimal.Degrees);
+            Assert.AreEqual(360.0, sentence.Bearing.Value.Sexagesimal.Degrees);
             Assert.AreEqual(new DateTime(2098, 09, 13, 08, 18, 36), sentence.FixUtcDateTime);
             Assert.AreEqual(011.3, sentence.MagneticVariation.Sexagesimal.Degrees);
             Assert.AreEqual(LongitudeHemisphere.East, sentence.MagneticVariation.Hemisphere);

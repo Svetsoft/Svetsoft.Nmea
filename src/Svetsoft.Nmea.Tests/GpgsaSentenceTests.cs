@@ -41,11 +41,11 @@ namespace Svetsoft.Nmea.Tests
             // GPGSA-specific
             Assert.AreEqual(FixMode.Automatic, sentence.FixMode);
             Assert.AreEqual(FixPlane.ThreeDimensional, sentence.FixPlane);
-            Assert.AreEqual("25", sentence.SatellitePrns[0].Value);
+            Assert.AreEqual("25", sentence.SatellitePrns[0].Raw);
             Assert.AreEqual(25, sentence.SatellitePrns[0].Number);
-            Assert.AreEqual("31", sentence.SatellitePrns[1].Value);
+            Assert.AreEqual("31", sentence.SatellitePrns[1].Raw);
             Assert.AreEqual(31, sentence.SatellitePrns[1].Number);
-            Assert.AreEqual("05", sentence.SatellitePrns[2].Value);
+            Assert.AreEqual("05", sentence.SatellitePrns[2].Raw);
             Assert.AreEqual(5, sentence.SatellitePrns[2].Number);
             Assert.AreEqual(4.1f, sentence.PositionDilutionOfPrecision.Value);
             Assert.AreEqual(DilutionOfPrecisionRating.Good, sentence.PositionDilutionOfPrecision.Rating);

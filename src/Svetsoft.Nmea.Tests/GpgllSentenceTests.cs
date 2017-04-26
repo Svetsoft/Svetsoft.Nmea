@@ -33,7 +33,7 @@ namespace Svetsoft.Nmea.Tests
             Assert.AreEqual(14507.36, sentence.Position.Longitude.Sexagesimal.Degrees);
             Assert.AreEqual(LongitudeHemisphere.East, sentence.Position.Longitude.Hemisphere);
             Assert.AreEqual(new TimeSpan(0, 18, 01, 33, 35000), sentence.UtcTime);
-            Assert.AreEqual(false, sentence.IsFix);
+            Assert.IsNull(sentence.IsFix);
         }
     }
 }

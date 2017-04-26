@@ -27,11 +27,11 @@ namespace Svetsoft.Nmea.Tests
             }, sentence.Fields);
 
             // AAM-specific
-            Assert.AreEqual(true, sentence.IsArrivalCircleEntered);
-            Assert.AreEqual(true, sentence.IsPerpendicularPassedAtWaypoint);
+            Assert.AreEqual(Status.ActiveValue, sentence.IsArrivalCircleEntered);
+            Assert.AreEqual(Status.ActiveValue, sentence.IsPerpendicularPassedAtWaypoint);
             Assert.AreEqual(0.10, sentence.ArrivalCircleRadius);
             Assert.AreEqual(DistanceUnit.NauticalMiles, sentence.RadiusUnit);
-            Assert.AreEqual("WPTNME", sentence.WaypointId);
+            Assert.AreEqual("WPTNME", sentence.Waypoint.Name);
         }
     }
 }

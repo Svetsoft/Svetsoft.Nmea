@@ -40,7 +40,7 @@ namespace Svetsoft.Nmea.Tests
             Assert.AreEqual(1, sentence.MessagesCount);
             Assert.AreEqual(1, sentence.MessageNumber);
             Assert.AreEqual(15, sentence.SatellitePrn.Number);
-            Assert.AreEqual("15", sentence.SatellitePrn.Value);
+            Assert.AreEqual("15", sentence.SatellitePrn.Raw);
             Assert.AreEqual(1159, sentence.WeekNumber);
             Assert.AreEqual(0x00, sentence.SatelliteHealth);
             Assert.AreEqual(0x441d, sentence.Eccentricity);

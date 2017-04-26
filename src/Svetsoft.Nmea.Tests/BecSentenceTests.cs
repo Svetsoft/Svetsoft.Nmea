@@ -46,7 +46,7 @@ namespace Svetsoft.Nmea.Tests
             Assert.AreEqual(AbsoluteBearing.Magnetic, sentence.MagneticBearing.AbsoluteBearing);
             Assert.AreEqual(0.0, sentence.Speed.Value);
             Assert.AreEqual(SpeedUnit.Knots, sentence.Speed.Unit);
-            Assert.AreEqual("DEST", sentence.DestinationWaypointId);
+            Assert.AreEqual("DEST", sentence.DestinationWaypoint.Name);
         }
     }
 }

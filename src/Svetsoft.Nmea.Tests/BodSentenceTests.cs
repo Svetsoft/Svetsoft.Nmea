@@ -32,8 +32,8 @@ namespace Svetsoft.Nmea.Tests
             Assert.AreEqual(AbsoluteBearing.True, sentence.TrueBearing.AbsoluteBearing);
             Assert.AreEqual(011, sentence.MagneticBearing.Value.Sexagesimal.Degrees);
             Assert.AreEqual(AbsoluteBearing.Magnetic, sentence.MagneticBearing.AbsoluteBearing);
-            Assert.AreEqual("DEST", sentence.DestinationWaypointId);
-            Assert.AreEqual("ORIG", sentence.OriginWaypointId);
+            Assert.AreEqual("DEST", sentence.DestinationWaypoint.Name);
+            Assert.AreEqual("ORIG", sentence.OriginWaypoint.Name);
         }
     }
 }

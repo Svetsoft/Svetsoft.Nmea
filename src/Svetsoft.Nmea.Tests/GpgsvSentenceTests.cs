@@ -47,7 +47,7 @@ namespace Svetsoft.Nmea.Tests
             Assert.AreEqual(4, sentence.SatellitesInView.Count);
 
             // 1st satellite
-            Assert.AreEqual("20", sentence.SatellitesInView[0].PseudoRandomNoise.Value);
+            Assert.AreEqual("20", sentence.SatellitesInView[0].PseudoRandomNoise.Raw);
             Assert.AreEqual(20, sentence.SatellitesInView[0].PseudoRandomNoise.Number);
             Assert.AreEqual(89, sentence.SatellitesInView[0].Elevation.Sexagesimal.Degrees);
             Assert.AreEqual(172, sentence.SatellitesInView[0].Azimuth.Sexagesimal.Degrees);
@@ -55,7 +55,7 @@ namespace Svetsoft.Nmea.Tests
             Assert.AreEqual(0, sentence.SatellitesInView[0].SignalToNoiseRatio.Value);
 
             // 2nd satellite
-            Assert.AreEqual("12", sentence.SatellitesInView[1].PseudoRandomNoise.Value);
+            Assert.AreEqual("12", sentence.SatellitesInView[1].PseudoRandomNoise.Raw);
             Assert.AreEqual(12, sentence.SatellitesInView[1].PseudoRandomNoise.Number);
             Assert.AreEqual(64, sentence.SatellitesInView[1].Elevation.Sexagesimal.Degrees);
             Assert.AreEqual(158, sentence.SatellitesInView[1].Azimuth.Sexagesimal.Degrees);
@@ -63,7 +63,7 @@ namespace Svetsoft.Nmea.Tests
             Assert.AreEqual(0, sentence.SatellitesInView[1].SignalToNoiseRatio.Value);
 
             // 3rd satellite
-            Assert.AreEqual("24", sentence.SatellitesInView[2].PseudoRandomNoise.Value);
+            Assert.AreEqual("24", sentence.SatellitesInView[2].PseudoRandomNoise.Raw);
             Assert.AreEqual(24, sentence.SatellitesInView[2].PseudoRandomNoise.Number);
             Assert.AreEqual(46, sentence.SatellitesInView[2].Elevation.Sexagesimal.Degrees);
             Assert.AreEqual(335, sentence.SatellitesInView[2].Azimuth.Sexagesimal.Degrees);
@@ -71,7 +71,7 @@ namespace Svetsoft.Nmea.Tests
             Assert.AreEqual(0, sentence.SatellitesInView[2].SignalToNoiseRatio.Value);
 
             // 4th satellite
-            Assert.AreEqual("15", sentence.SatellitesInView[3].PseudoRandomNoise.Value);
+            Assert.AreEqual("15", sentence.SatellitesInView[3].PseudoRandomNoise.Raw);
             Assert.AreEqual(15, sentence.SatellitesInView[3].PseudoRandomNoise.Number);
             Assert.AreEqual(38, sentence.SatellitesInView[3].Elevation.Sexagesimal.Degrees);
             Assert.AreEqual(18, sentence.SatellitesInView[3].Azimuth.Sexagesimal.Degrees);

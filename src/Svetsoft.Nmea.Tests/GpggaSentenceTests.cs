@@ -51,8 +51,7 @@ namespace Svetsoft.Nmea.Tests
             Assert.AreEqual(DistanceUnit.Meters, sentence.Altitude.Unit);
             Assert.AreEqual(-34.0, sentence.GeoidalSeparator.Value);
             Assert.AreEqual(DistanceUnit.Meters, sentence.GeoidalSeparator.Unit);
-            Assert.IsNull(sentence.SecondsSinceLastDifferentialGpsSc104Update);
-            Assert.IsNull(sentence.DifferentialGpsReferenceStationId);
+            Assert.IsNull(sentence.DifferentialGpsData);
         }
     }
 }
