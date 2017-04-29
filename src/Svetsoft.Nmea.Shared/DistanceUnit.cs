@@ -17,7 +17,9 @@ namespace Svetsoft.Nmea
                 {
                     Meters,
                     NauticalMiles,
-                    Kilometers
+                    Kilometers,
+                    Feet,
+                    Fathoms
                 };
             }
         }
@@ -57,6 +59,16 @@ namespace Svetsoft.Nmea
         public static readonly DistanceUnit NauticalMiles = new DistanceUnit("N");
 
         /// <summary>
+        ///     Represents the unit of length known as "Foot".
+        /// </summary>
+        public static readonly DistanceUnit Feet = new DistanceUnit("f");
+
+        /// <summary>
+        ///     Represents the unit of length known as "Fathom" used to measure depth of water.
+        /// </summary>
+        public static readonly DistanceUnit Fathoms = new DistanceUnit("F");
+
+        /// <summary>
         ///     Represents the unit of length in the International System of Units, equal to 1000 meters.
         /// </summary>
         public static readonly DistanceUnit Kilometers = new DistanceUnit("K");
@@ -80,7 +92,7 @@ namespace Svetsoft.Nmea
 
             foreach (var item in InternalList)
             {
-                if (value.Equals(item.Value, StringComparison.OrdinalIgnoreCase))
+                if (value.Equals(item.Value, StringComparison.Ordinal))
                 {
                     return item;
                 }
