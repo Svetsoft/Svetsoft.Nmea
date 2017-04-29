@@ -13,6 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Bearing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DifferentialData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\AsdSentence.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sentences\BwrSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\BwcSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\BodSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\AutoPilotSentence.cs" />
