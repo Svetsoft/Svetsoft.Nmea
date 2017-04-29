@@ -111,11 +111,11 @@ namespace Svetsoft.Nmea
         private void Initialize()
         {
             // Talker sentences
-            AddMessageType<GpggaSentence>("GPGGA");
-            AddMessageType<GpgllSentence>("GPGLL");
-            AddMessageType<GpgsaSentence>("GPGSA");
-            AddMessageType<GpgsvSentence>("GPGSV");
-            AddMessageType<GprmcSentence>("GPRMC");
+            AddMessageType<GgaSentence>("GPGGA");
+            AddMessageType<GllSentence>("GPGLL");
+            AddMessageType<GsaSentence>("GPGSA");
+            AddMessageType<GsvSentence>("GPGSV");
+            AddMessageType<RmcSentence>("GPRMC");
         }
 
         /// <summary>

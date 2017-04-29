@@ -3,15 +3,15 @@
 namespace Svetsoft.Nmea.Tests
 {
     [TestClass]
-    public class GpgsvSentenceTests
+    public class GsvSentenceTests
     {
         /// <summary>
-        ///     Checks whether a parsed GPGSV sentence from the NMEA specification equals the string it was built from.
+        ///     Checks whether a parsed GSV sentence from the NMEA specification equals the string it was built from.
         /// </summary>
         [TestMethod]
-        public void ParseGpgsvSentence()
+        public void ParseGsvSentence()
         {
-            var sentence = new GpgsvSentence("$GPGSV,3,1,11,20,89,172,,12,64,158,,24,46,335,,15,38,018,*76");
+            var sentence = new GsvSentence("$GPGSV,3,1,11,20,89,172,,12,64,158,,24,46,335,,15,38,018,*76");
 
             // NmeaSentence (Inherited)
             Assert.AreEqual("$GPGSV,3,1,11,20,89,172,,12,64,158,,24,46,335,,15,38,018,*76", sentence.Sentence);
@@ -40,7 +40,7 @@ namespace Svetsoft.Nmea.Tests
                 ""
             }, sentence.Fields);
 
-            // GPGSV-specific
+            // GSV-specific
             Assert.AreEqual(3, sentence.MessagesCount);
             Assert.AreEqual(1, sentence.MessageNumber);
             Assert.AreEqual(11, sentence.SatellitesInViewCount);

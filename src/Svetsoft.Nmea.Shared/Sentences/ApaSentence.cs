@@ -3,7 +3,7 @@
 namespace Svetsoft.Nmea
 {
     /// <summary>
-    ///     Represents a sentence of the NMEA specification about Autopilot (A).
+    ///     Represents a sentence of the NMEA specification for Autopilot (A).
     /// </summary>
     public sealed class ApaSentence : AutoPilotSentence
     {

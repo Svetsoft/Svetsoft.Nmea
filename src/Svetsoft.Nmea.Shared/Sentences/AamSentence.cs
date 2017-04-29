@@ -1,7 +1,7 @@
 ﻿namespace Svetsoft.Nmea
 {
     /// <summary>
-    ///     Represents a sentence of the NMEA specification about destination waypoint arrival alarm.
+    ///     Represents a sentence of the NMEA specification for destination waypoint arrival alarm.
     /// </summary>
     public class AamSentence : NmeaSentence
     {

@@ -3,16 +3,16 @@
 namespace Svetsoft.Nmea
 {
     /// <summary>
-    ///     Represents a sentence of the NMEA specification about geographic position (latitude/longitude)
+    ///     Represents a sentence of the NMEA specification for geographic position (latitude/longitude)
     ///     and time.
     /// </summary>
-    public class GpgllSentence : NmeaSentence
+    public class GllSentence : NmeaSentence
     {
         /// <summary>
-        ///     Creates a new instance of the <see cref="GpgllSentence" /> class.
+        ///     Creates a new instance of the <see cref="GllSentence" /> class.
         /// </summary>
         /// <param name="sentence">The sentence to create the instance from.</param>
-        public GpgllSentence(string sentence)
+        public GllSentence(string sentence)
             : base(sentence)
         {
             Parse();
@@ -34,7 +34,7 @@ namespace Svetsoft.Nmea
         public Position Position { get; internal set; }
 
         /// <summary>
-        ///     Parses the fields of this sentence to its <see cref="GpgllSentence" /> equivalent.
+        ///     Parses the fields of this sentence to its <see cref="GllSentence" /> equivalent.
         /// </summary>
         private void Parse()
         {

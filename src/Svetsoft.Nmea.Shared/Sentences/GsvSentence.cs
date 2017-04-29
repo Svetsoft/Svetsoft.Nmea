@@ -5,19 +5,19 @@ using System.Collections.ObjectModel;
 namespace Svetsoft.Nmea
 {
     /// <summary>
-    ///     Represents a sentence of the NMEA specification about satellites in view.
+    ///     Represents a sentence of the NMEA specification for satellites in view.
     /// </summary>
-    public class GpgsvSentence : NmeaSentence
+    public class GsvSentence : NmeaSentence
     {
         protected const int MaxSatellitesPerSentence = 6;
         protected const int FieldsPerSatelliteCount = 4;
         private readonly List<Satellite> _satellitesInView;
 
         /// <summary>
-        ///     Creates a new instance of the <see cref="GpgsvSentence" /> class.
+        ///     Creates a new instance of the <see cref="GsvSentence" /> class.
         /// </summary>
         /// <param name="sentence">The sentence to create the instance from.</param>
-        public GpgsvSentence(string sentence)
+        public GsvSentence(string sentence)
             : base(sentence)
         {
             _satellitesInView = new List<Satellite>();
@@ -57,7 +57,7 @@ namespace Svetsoft.Nmea
         }
 
         /// <summary>
-        ///     Parses the fields of this sentence to its <see cref="GpgsvSentence" /> equivalent.
+        ///     Parses the fields of this sentence to its <see cref="GsvSentence" /> equivalent.
         /// </summary>
         private void Parse()
         {

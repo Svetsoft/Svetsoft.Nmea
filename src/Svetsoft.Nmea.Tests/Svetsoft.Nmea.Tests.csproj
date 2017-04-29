@@ -48,17 +48,18 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BwcSentenceTests.cs" />
     <Compile Include="BodSentenceTests.cs" />
     <Compile Include="ApbSentenceTests.cs" />
     <Compile Include="ApaSentenceTests.cs" />
     <Compile Include="AlmSentenceTests.cs" />
     <Compile Include="BecSentenceTests.cs" />
-    <Compile Include="GpggaSentenceTests.cs" />
+    <Compile Include="GgaSentenceTests.cs" />
     <Compile Include="AamSentenceTests.cs" />
-    <Compile Include="GprmcSentenceTests.cs" />
-    <Compile Include="GpgsaSentenceTests.cs" />
-    <Compile Include="GpgllSentenceTests.cs" />
-    <Compile Include="GpgsvSentenceTests.cs" />
+    <Compile Include="RmcSentenceTests.cs" />
+    <Compile Include="GsaSentenceTests.cs" />
+    <Compile Include="GllSentenceTests.cs" />
+    <Compile Include="GsvSentenceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

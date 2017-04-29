@@ -3,7 +3,7 @@
 namespace Svetsoft.Nmea
 {
     /// <summary>
-    ///     Represents a sentence of the NMEA specification about Global Positioning System almanac datas.
+    ///     Represents a sentence of the NMEA specification for Global Positioning System almanac data.
     /// </summary>
     public class AlmSentence : NmeaSentence
     {

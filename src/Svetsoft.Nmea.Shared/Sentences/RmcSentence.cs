@@ -3,15 +3,15 @@
 namespace Svetsoft.Nmea
 {
     /// <summary>
-    ///     Represents a sentence of the NMEA specification about recommended minimum navigation information.
+    ///     Represents a sentence of the NMEA specification for recommended minimum navigation information.
     /// </summary>
-    public class GprmcSentence : NmeaSentence
+    public class RmcSentence : NmeaSentence
     {
         /// <summary>
-        ///     Creates a new instance of the <see cref="GprmcSentence" /> class.
+        ///     Creates a new instance of the <see cref="RmcSentence" /> class.
         /// </summary>
         /// <param name="sentence">The sentence to create the instance from.</param>
-        public GprmcSentence(string sentence)
+        public RmcSentence(string sentence)
             : base(sentence)
         {
             Parse();
@@ -48,7 +48,7 @@ namespace Svetsoft.Nmea
         public Bearing Bearing { get; internal set; }
 
         /// <summary>
-        ///     Parses the fields of this sentence to its <see cref="GprmcSentence" /> equivalent.
+        ///     Parses the fields of this sentence to its <see cref="RmcSentence" /> equivalent.
         /// </summary>
         private void Parse()
         {

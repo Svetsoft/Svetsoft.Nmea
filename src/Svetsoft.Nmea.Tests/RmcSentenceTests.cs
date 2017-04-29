@@ -4,15 +4,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Svetsoft.Nmea.Tests
 {
     [TestClass]
-    public class GprmcSentenceTests
+    public class RmcSentenceTests
     {
         /// <summary>
-        ///     Checks whether a parsed GPRMC sentence from the NMEA specification equals the string it was built from.
+        ///     Checks whether a parsed RMC sentence from the NMEA specification equals the string it was built from.
         /// </summary>
         [TestMethod]
         public void ParseGprmcSentence()
         {
-            var sentence = new GprmcSentence("$GPRMC,081836,A,3751.65,S,14507.36,E,000.0,360.0,130998,011.3,E*62");
+            var sentence = new RmcSentence("$GPRMC,081836,A,3751.65,S,14507.36,E,000.0,360.0,130998,011.3,E*62");
 
             // NmeaSentence (Inherited)
             Assert.AreEqual("$GPRMC,081836,A,3751.65,S,14507.36,E,000.0,360.0,130998,011.3,E*62", sentence.Sentence);
@@ -33,7 +33,7 @@ namespace Svetsoft.Nmea.Tests
                 "E"
             }, sentence.Fields);
 
-            // GPRMC-specific
+            // RMC-specific
             Assert.AreEqual(Status.ActiveValue, sentence.NavigationState);
             Assert.AreEqual(3751.65, sentence.Position.Latitude.Sexagesimal.Degrees);
             Assert.AreEqual(LatitudeHemisphere.South, sentence.Position.Latitude.Hemisphere);

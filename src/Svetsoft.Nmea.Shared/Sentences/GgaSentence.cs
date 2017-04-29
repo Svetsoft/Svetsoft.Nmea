@@ -3,16 +3,16 @@
 namespace Svetsoft.Nmea
 {
     /// <summary>
-    ///     Represents a sentence of the NMEA specification about Global Positioning System fix data. The sentence contains
+    ///     Represents a sentence of the NMEA specification for Global Positioning System fix data. The sentence contains
     ///     time, position and fix related data for a GPS receiver.
     /// </summary>
-    public class GpggaSentence : NmeaSentence
+    public class GgaSentence : NmeaSentence
     {
         /// <summary>
-        ///     Creates a new instance of the <see cref="GpggaSentence" /> class.
+        ///     Creates a new instance of the <see cref="GgaSentence" /> class.
         /// </summary>
         /// <param name="sentence">The sentence to create the instance from.</param>
-        public GpggaSentence(string sentence)
+        public GgaSentence(string sentence)
             : base(sentence)
         {
             Parse();
@@ -59,7 +59,7 @@ namespace Svetsoft.Nmea
         public DifferentialData DifferentialGpsData { get; internal set; }
 
         /// <summary>
-        ///     Parses the fields of this sentence to its <see cref="GpggaSentence" /> equivalent.
+        ///     Parses the fields of this sentence to its <see cref="GgaSentence" /> equivalent.
         /// </summary>
         private void Parse()
         {

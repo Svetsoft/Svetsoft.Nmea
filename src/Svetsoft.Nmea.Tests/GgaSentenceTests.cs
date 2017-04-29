@@ -4,15 +4,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Svetsoft.Nmea.Tests
 {
     [TestClass]
-    public class GpggaSentenceTests
+    public class GgaSentenceTests
     {
         /// <summary>
-        ///     Checks whether a parsed GPGGA sentence from the NMEA specification equals the string it was built from.
+        ///     Checks whether a parsed GGA sentence from the NMEA specification equals the string it was built from.
         /// </summary>
         [TestMethod]
-        public void ParseGpggaSentence()
+        public void ParseGgaSentence()
         {
-            var sentence = new GpggaSentence("$GPGGA,170834,4124.8963,N,08151.6838,W,1,05,1.5,280.2,M,-34.0,M,,,*59");
+            var sentence = new GgaSentence("$GPGGA,170834,4124.8963,N,08151.6838,W,1,05,1.5,280.2,M,-34.0,M,,,*59");
 
             // NmeaSentence (Inherited)
             Assert.AreEqual("$GPGGA,170834,4124.8963,N,08151.6838,W,1,05,1.5,280.2,M,-34.0,M,,,*59", sentence.Sentence);
@@ -37,7 +37,7 @@ namespace Svetsoft.Nmea.Tests
                 ""
             }, sentence.Fields);
 
-            // GPGGA-specific
+            // GGA-specific
             Assert.AreEqual(new TimeSpan(17, 08, 34), sentence.UtcTime);
             Assert.AreEqual(4124.8963, sentence.Position.Latitude.Sexagesimal.Degrees);
             Assert.AreEqual(LatitudeHemisphere.North, sentence.Position.Latitude.Hemisphere);

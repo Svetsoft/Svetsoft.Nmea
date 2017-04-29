@@ -3,15 +3,15 @@
 namespace Svetsoft.Nmea.Tests
 {
     [TestClass]
-    public class GpgsaSentenceTests
+    public class GsaSentenceTests
     {
         /// <summary>
-        ///     Checks whether a parsed GPGSA sentence from the NMEA specification equals the string it was built from.
+        ///     Checks whether a parsed GSA sentence from the NMEA specification equals the string it was built from.
         /// </summary>
         [TestMethod]
         public void ParseGpgsaSentence()
         {
-            var sentence = new GpgsaSentence("$GPGSA,A,2,25,31,05,,,,,,,,,,4.1,2.6,3.2*33");
+            var sentence = new GsaSentence("$GPGSA,A,2,25,31,05,,,,,,,,,,4.1,2.6,3.2*33");
 
             // NmeaSentence (Inherited)
             Assert.AreEqual("$GPGSA,A,2,25,31,05,,,,,,,,,,4.1,2.6,3.2*33", sentence.Sentence);
@@ -38,7 +38,7 @@ namespace Svetsoft.Nmea.Tests
                 "3.2"
             }, sentence.Fields);
 
-            // GPGSA-specific
+            // GSA-specific
             Assert.AreEqual(FixMode.Automatic, sentence.FixMode);
             Assert.AreEqual(FixPlane.ThreeDimensional, sentence.FixPlane);
             Assert.AreEqual("25", sentence.SatellitePrns[0].Raw);

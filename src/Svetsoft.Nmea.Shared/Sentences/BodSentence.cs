@@ -1,9 +1,9 @@
 ﻿namespace Svetsoft.Nmea
 {
     /// <summary>
-    ///     Represents a sentence of the NMEA specification about Bearing - Waypoint to waypoint.
+    ///     Represents a sentence of the NMEA specification for bearing (Waypoint to waypoint).
     /// </summary>
-    public class BodSentence : NmeaSentence
+    public class BodSentence : NmeaSentence, ITrueBearingSentence, IMagneticBearingSentence
     {
         /// <summary>
         ///     Creates a new instance of the <see cref="BodSentence" /> class.

@@ -1,7 +1,7 @@
 ﻿namespace Svetsoft.Nmea
 {
     /// <summary>
-    ///     Represents a sentence of the NMEA specification about Autopilot (B).
+    ///     Represents a sentence of the NMEA specification for Autopilot (B).
     /// </summary>
     public sealed class ApbSentence : AutoPilotSentence
     {

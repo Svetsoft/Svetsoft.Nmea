@@ -3,7 +3,7 @@
 namespace Svetsoft.Nmea
 {
     /// <summary>
-    ///     Represents a sentence of the NMEA specification about Autopilot System Data.
+    ///     Represents a sentence of the NMEA specification for Autopilot System Data.
     /// </summary>
     public class AsdSentence : NmeaSentence
     {

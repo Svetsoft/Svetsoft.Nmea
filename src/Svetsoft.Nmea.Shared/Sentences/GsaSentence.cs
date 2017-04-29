@@ -5,17 +5,17 @@ using System.Collections.ObjectModel;
 namespace Svetsoft.Nmea
 {
     /// <summary>
-    ///     Represents a sentence of the NMEA specification about dilution of precision and active satellites.
+    ///     Represents a sentence of the NMEA specification for dilution of precision and active satellites.
     /// </summary>
-    public class GpgsaSentence : NmeaSentence
+    public class GsaSentence : NmeaSentence
     {
         private readonly List<PseudoRandomNoise> _satellitePrns;
 
         /// <summary>
-        ///     Creates a new instance of the <see cref="GpgsaSentence" /> class.
+        ///     Creates a new instance of the <see cref="GsaSentence" /> class.
         /// </summary>
         /// <param name="sentence">The sentence to create the instance from.</param>
-        public GpgsaSentence(string sentence)
+        public GsaSentence(string sentence)
             : base(sentence)
         {
             _satellitePrns = new List<PseudoRandomNoise>();
@@ -65,7 +65,7 @@ namespace Svetsoft.Nmea
         }
 
         /// <summary>
-        ///     Parses the fields of this sentence to its <see cref="GpgsaSentence" /> equivalent.
+        ///     Parses the fields of this sentence to its <see cref="GsaSentence" /> equivalent.
         /// </summary>
         private void Parse()
         {
