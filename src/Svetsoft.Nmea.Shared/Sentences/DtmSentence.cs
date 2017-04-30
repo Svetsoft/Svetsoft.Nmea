@@ -45,11 +45,11 @@
         /// </summary>
         private void Parse()
         {
-            DatumCode = GetDatumCode(0);
-            DatumSubCode = GetDatumSubCode(1);
+            DatumCode = GetString(0);
+            DatumSubCode = GetString(1);
             PositionOffset = GetPosition(2);
             AltitudeOffset = GetDistance(6, DistanceUnit.Meters);
-            DatumName = GetDatumName(7);
+            DatumName = GetString(7);
         }
     }
 }

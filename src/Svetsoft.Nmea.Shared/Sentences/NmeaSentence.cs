@@ -243,31 +243,11 @@ namespace Svetsoft.Nmea
         }
 
         /// <summary>
-        ///     Gets the value of the specified field as a Datum name.
+        ///     Gets the value of the specified field as a string.
         /// </summary>
         /// <param name="index">The zero-based index of the field.</param>
         /// <returns>The value of the specified index.</returns>
-        protected string GetDatumName(int index)
-        {
-            return Fields.Length > index && !string.IsNullOrWhiteSpace(Fields[index]) ? Fields[index] : default(string);
-        }
-
-        /// <summary>
-        ///     Gets the value of the specified field as a Datum code.
-        /// </summary>
-        /// <param name="index">The zero-based index of the field.</param>
-        /// <returns>The value of the specified index.</returns>
-        protected string GetDatumCode(int index)
-        {
-            return Fields.Length > index && !string.IsNullOrWhiteSpace(Fields[index]) ? Fields[index] : default(string);
-        }
-
-        /// <summary>
-        ///     Gets the value of the specified field as a Datum subcode.
-        /// </summary>
-        /// <param name="index">The zero-based index of the field.</param>
-        /// <returns>The value of the specified index.</returns>
-        protected string GetDatumSubCode(int index)
+        protected string GetString(int index)
         {
             return Fields.Length > index && !string.IsNullOrWhiteSpace(Fields[index]) ? Fields[index] : default(string);
         }
