@@ -48,6 +48,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbtSentenceTests.cs" />
     <Compile Include="DbsSentenceTests.cs" />
     <Compile Include="DbkSentenceTests.cs" />
     <Compile Include="BwwSentenceTests.cs" />
