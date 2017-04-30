@@ -42,5 +42,26 @@ namespace Svetsoft.Nmea
 
             return new Distance(DistanceUnit.Parse(values[1]), double.Parse(values[0]));
         }
+
+        /// <summary>
+        ///     Converts an array of string elements to its <see cref="Distance" /> equivalent.
+        /// </summary>
+        /// <param name="unit">The <see cref="DistanceUnit" /> in which the distance is represented.</param>
+        /// <param name="value">An array of string elements containing a value to convert.</param>
+        /// <returns>The <see cref="Distance" /> equivalent to the elements.</returns>
+        public static Distance Parse(DistanceUnit unit, string value)
+        {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new FormatException($"{nameof(value)} is not in the correct format");
+            }
+
+            return new Distance(unit, double.Parse(value));
+        }
     }
 }

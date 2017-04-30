@@ -243,6 +243,36 @@ namespace Svetsoft.Nmea
         }
 
         /// <summary>
+        ///     Gets the value of the specified field as a Datum name.
+        /// </summary>
+        /// <param name="index">The zero-based index of the field.</param>
+        /// <returns>The value of the specified index.</returns>
+        protected string GetDatumName(int index)
+        {
+            return Fields.Length > index && !string.IsNullOrWhiteSpace(Fields[index]) ? Fields[index] : default(string);
+        }
+
+        /// <summary>
+        ///     Gets the value of the specified field as a Datum code.
+        /// </summary>
+        /// <param name="index">The zero-based index of the field.</param>
+        /// <returns>The value of the specified index.</returns>
+        protected string GetDatumCode(int index)
+        {
+            return Fields.Length > index && !string.IsNullOrWhiteSpace(Fields[index]) ? Fields[index] : default(string);
+        }
+
+        /// <summary>
+        ///     Gets the value of the specified field as a Datum subcode.
+        /// </summary>
+        /// <param name="index">The zero-based index of the field.</param>
+        /// <returns>The value of the specified index.</returns>
+        protected string GetDatumSubCode(int index)
+        {
+            return Fields.Length > index && !string.IsNullOrWhiteSpace(Fields[index]) ? Fields[index] : default(string);
+        }
+
+        /// <summary>
         ///     Gets the value of the specified field as a <see cref="Distance" /> object.
         /// </summary>
         /// <param name="index">The zero-based index of the field.</param>
@@ -250,6 +280,17 @@ namespace Svetsoft.Nmea
         protected Distance GetDistance(int index)
         {
             return Fields.Length > index + 1 && Fields.All(Enumerable.Range(index, 2), s => !string.IsNullOrWhiteSpace(s)) ? Distance.Parse(Fields.ToArray(index, 2)) : default(Distance);
+        }
+
+        /// <summary>
+        ///     Gets the value of the specified field as a <see cref="Distance" /> object.
+        /// </summary>
+        /// <param name="index">The zero-based index of the field.</param>
+        /// <param name="unit">The <see cref="DistanceUnit" /> in which the distance is represented.</param>
+        /// <returns>The value of the specified index.</returns>
+        protected Distance GetDistance(int index, DistanceUnit unit)
+        {
+            return Fields.Length > index && !string.IsNullOrWhiteSpace(Fields[index]) ? Distance.Parse(unit, Fields[index]) : default(Distance);
         }
 
         /// <summary>
@@ -299,7 +340,7 @@ namespace Svetsoft.Nmea
             var elevation = GetElevation(index + 1);
             var azimuth = GetAzimuth(index + 2);
             var signalToNoiseRatio = GetSignalToNoiseRatio(index + 3);
-            
+
             return new Satellite(pseudoRandomNoise, elevation, azimuth, signalToNoiseRatio);
         }
 
@@ -308,7 +349,7 @@ namespace Svetsoft.Nmea
         /// </summary>
         /// <param name="index">The zero-based index of the field.</param>
         /// <param name="count">The number of elements to return.</param>
-        /// <returns>The collection of <see cref="PseudoRandomNoise"/> elements for the specified range.</returns>
+        /// <returns>The collection of <see cref="PseudoRandomNoise" /> elements for the specified range.</returns>
         protected IEnumerable<PseudoRandomNoise> GetPseudoRandomNoise(int index, int count)
         {
             while (index < count)
@@ -328,7 +369,7 @@ namespace Svetsoft.Nmea
         /// </summary>
         /// <param name="index">The zero-based index of the field.</param>
         /// <param name="count">The number of elements to return.</param>
-        /// <returns>The collection of <see cref="Satellite"/> elements for the specified range.</returns>
+        /// <returns>The collection of <see cref="Satellite" /> elements for the specified range.</returns>
         protected IEnumerable<Satellite> GetSatellitesInView(int index, int count)
         {
             while (index < count)
