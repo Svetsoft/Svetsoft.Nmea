@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace Svetsoft.Nmea
 {
@@ -25,14 +24,6 @@ namespace Svetsoft.Nmea
         }
 
         private static readonly IList<DistanceUnit> InternalList;
-
-        /// <summary>
-        ///     Returns a read-only list of distance units.
-        /// </summary>
-        public ReadOnlyCollection<DistanceUnit> List
-        {
-            get { return new ReadOnlyCollection<DistanceUnit>(InternalList); }
-        }
 
         /// <summary>
         ///     Returns the value that this distance unit represents.

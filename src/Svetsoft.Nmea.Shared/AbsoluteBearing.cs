@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace Svetsoft.Nmea
 {
@@ -40,14 +39,6 @@ namespace Svetsoft.Nmea
         internal AbsoluteBearing(string value)
         {
             Value = value;
-        }
-
-        /// <summary>
-        ///     Returns a read-only list of types of absolute bearings.
-        /// </summary>
-        public ReadOnlyCollection<AbsoluteBearing> List
-        {
-            get { return new ReadOnlyCollection<AbsoluteBearing>(InternalList); }
         }
 
         /// <summary>

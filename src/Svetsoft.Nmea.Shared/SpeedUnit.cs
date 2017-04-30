@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace Svetsoft.Nmea
 {
@@ -21,14 +20,6 @@ namespace Svetsoft.Nmea
         }
 
         private static readonly IList<SpeedUnit> InternalList;
-
-        /// <summary>
-        ///     Returns a read-only list of speed units.
-        /// </summary>
-        public ReadOnlyCollection<SpeedUnit> List
-        {
-            get { return new ReadOnlyCollection<SpeedUnit>(InternalList); }
-        }
 
         /// <summary>
         ///     Returns the value that this speed unit represents.

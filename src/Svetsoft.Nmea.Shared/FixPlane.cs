@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace Svetsoft.Nmea
 {
@@ -20,14 +19,6 @@ namespace Svetsoft.Nmea
         }
 
         private static readonly IList<FixPlane> InternalList;
-
-        /// <summary>
-        ///     Returns a read-only list of supported planes of a fix.
-        /// </summary>
-        public ReadOnlyCollection<FixPlane> List
-        {
-            get { return new ReadOnlyCollection<FixPlane>(InternalList); }
-        }
 
         /// <summary>
         ///     Represents the position fix is not available.

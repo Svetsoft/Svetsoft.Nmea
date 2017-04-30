@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace Svetsoft.Nmea
 {
@@ -22,14 +21,6 @@ namespace Svetsoft.Nmea
         }
 
         private static readonly IList<LongitudeHemisphere> InternalList;
-
-        /// <summary>
-        ///     Returns a read-only list of hemispheres.
-        /// </summary>
-        public ReadOnlyCollection<LongitudeHemisphere> List
-        {
-            get { return new ReadOnlyCollection<LongitudeHemisphere>(InternalList); }
-        }
 
         /// <summary>
         ///     Returns the value that this hemisphere represents.

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace Svetsoft.Nmea
 {
@@ -17,20 +16,19 @@ namespace Svetsoft.Nmea
                 InternalList = new[]
                 {
                     Automatic,
-                    Manual
+                    Differential,
+                    Estimate,
+                    FloatRealTimeKinematic,
+                    Manual,
+                    NotInUseOrNotValid,
+                    Precise,
+                    RealTimeKinematic,
+                    Simulation
                 };
             }
         }
 
         private static readonly IList<FixMode> InternalList;
-
-        /// <summary>
-        ///     Returns a read-only list of fix modes.
-        /// </summary>
-        public ReadOnlyCollection<FixMode> List
-        {
-            get { return new ReadOnlyCollection<FixMode>(InternalList); }
-        }
 
         /// <summary>
         ///     Returns the value that this fix mode represents.
@@ -55,6 +53,41 @@ namespace Svetsoft.Nmea
         ///     The position fix requires manual evaluation.
         /// </summary>
         public static readonly FixMode Manual = new FixMode("M");
+
+        /// <summary>
+        ///     The position fix is differential.
+        /// </summary>
+        public static readonly FixMode Differential = new FixMode("D");
+
+        /// <summary>
+        ///     The position fix is precise (No degradation).
+        /// </summary>
+        public static readonly FixMode Precise = new FixMode("P");
+
+        /// <summary>
+        ///     The position fix is real time kinematic.
+        /// </summary>
+        public static readonly FixMode RealTimeKinematic = new FixMode("R");
+
+        /// <summary>
+        ///     The position fix is float real time kinematic.
+        /// </summary>
+        public static readonly FixMode FloatRealTimeKinematic = new FixMode("F");
+
+        /// <summary>
+        ///     The position fix is estimated (dead reckoning).
+        /// </summary>
+        public static readonly FixMode Estimate = new FixMode("E");
+
+        /// <summary>
+        ///     The constellation is not in use or is not valid.
+        /// </summary>
+        public static readonly FixMode NotInUseOrNotValid = new FixMode("N");
+
+        /// <summary>
+        ///     The position fix is simulated.
+        /// </summary>
+        public static readonly FixMode Simulation = new FixMode("S");
 
         /// <summary>
         ///     Converts a string to its <see cref="FixMode" /> equivalent.

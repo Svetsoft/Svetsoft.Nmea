@@ -11,11 +11,11 @@ namespace Svetsoft.Nmea
         /// Initializes a new instance of the <see cref="DifferentialData"/> class.
         /// </summary>
         /// <param name="secondsSinceLastDifferentialGpsSc104Update">The age of differential GPS data described in seconds since the last SC104 (type 1 or 9) update.</param>
-        /// <param name="sifferentialGpsReferenceStationId">The differential reference station ID.</param>
-        public DifferentialData(TimeSpan secondsSinceLastDifferentialGpsSc104Update, int sifferentialGpsReferenceStationId)
+        /// <param name="differentialGpsReferenceStationId">The differential reference station ID.</param>
+        public DifferentialData(TimeSpan secondsSinceLastDifferentialGpsSc104Update, int differentialGpsReferenceStationId)
         {
             SecondsSinceLastDifferentialGpsSc104Update = secondsSinceLastDifferentialGpsSc104Update;
-            DifferentialGpsReferenceStationId = sifferentialGpsReferenceStationId;
+            DifferentialGpsReferenceStationId = differentialGpsReferenceStationId;
         }
 
         /// <summary>

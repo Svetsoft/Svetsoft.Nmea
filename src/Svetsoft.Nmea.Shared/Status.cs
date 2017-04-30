@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace Svetsoft.Nmea
 {
@@ -22,14 +21,6 @@ namespace Svetsoft.Nmea
         }
 
         private static readonly IList<Status> InternalList;
-
-        /// <summary>
-        ///     Returns a read-only list of status.
-        /// </summary>
-        public ReadOnlyCollection<Status> List
-        {
-            get { return new ReadOnlyCollection<Status>(InternalList); }
-        }
 
         /// <summary>
         ///     Returns the value that this status represents.

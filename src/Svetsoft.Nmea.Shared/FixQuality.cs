@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace Svetsoft.Nmea
 {
@@ -67,14 +66,6 @@ namespace Svetsoft.Nmea
             }
 
             throw new FormatException($"{nameof(value)} is not in the correct format");
-        }
-
-        /// <summary>
-        ///     Returns a read-only list of supported devices to obtain a fix.
-        /// </summary>
-        public ReadOnlyCollection<FixQuality> List
-        {
-            get { return new ReadOnlyCollection<FixQuality>(InternalList); }
         }
 
         /// <summary>
