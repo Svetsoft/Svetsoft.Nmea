@@ -56,7 +56,6 @@
     <Compile Include="BwcSentenceTests.cs" />
     <Compile Include="BodSentenceTests.cs" />
     <Compile Include="ApbSentenceTests.cs" />
-    <Compile Include="ApaSentenceTests.cs" />
     <Compile Include="AlmSentenceTests.cs" />
     <Compile Include="BecSentenceTests.cs" />
     <Compile Include="GgaSentenceTests.cs" />
