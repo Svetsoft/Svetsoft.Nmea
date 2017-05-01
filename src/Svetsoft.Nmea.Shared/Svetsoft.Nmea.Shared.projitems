@@ -13,6 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Bearing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DifferentialData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ResidualType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sentences\GxaSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\GtdSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\GstSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\GrsSentence.cs" />
