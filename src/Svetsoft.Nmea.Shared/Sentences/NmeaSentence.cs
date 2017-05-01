@@ -92,6 +92,16 @@ namespace Svetsoft.Nmea
         }
 
         /// <summary>
+        ///     Gets the value of the specified field as a <see cref="ResidualType" /> object.
+        /// </summary>
+        /// <param name="index">The zero-based index of the field.</param>
+        /// <returns>The value of the specified index.</returns>
+        protected ResidualType GetResidualType(int index)
+        {
+            return Fields.Length > index && !string.IsNullOrWhiteSpace(Fields[index]) ? ResidualType.Parse(Fields[index]) : default(ResidualType);
+        }
+
+        /// <summary>
         ///     Gets the value of the specified field as a <see cref="Bearing" /> object.
         /// </summary>
         /// <param name="index">The zero-based index of the field.</param>
@@ -366,6 +376,31 @@ namespace Svetsoft.Nmea
                 }
 
                 yield return GetSatelliteInView(index++);
+            }
+        }
+
+        /// <summary>
+        ///     Gets a collection of values for a specified index as <see cref="Distance" /> elements.
+        /// </summary>
+        /// <param name="index">The zero-based index of the field.</param>
+        /// <param name="count">The number of elements to return.</param>
+        /// <param name="unit">The <see cref="DistanceUnit"/> in which the values are represented.</param>
+        /// <returns>The collection of <see cref="Satellite" /> elements for the specified range.</returns>
+        protected IEnumerable<Distance> GetDistances(int index, int count, DistanceUnit unit)
+        {
+            while (index < count)
+            {
+                if (index > Fields.Length - 1)
+                {
+                    break;
+                }
+
+                if (string.IsNullOrWhiteSpace(Fields[index]))
+                {
+                    continue;
+                }
+
+                yield return GetDistance(index++, unit);
             }
         }
 

@@ -12,6 +12,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)AbsoluteBearing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Bearing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DifferentialData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ResidualType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sentences\GrsSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\GnsSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\GlcSentence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sentences\GbsSentence.cs" />
