@@ -11,6 +11,7 @@ namespace Svetsoft.Nmea
         ///     Creates a new instance of the <see cref="GxaSentence" /> class.
         /// </summary>
         /// <param name="sentence">The sentence to create the instance from.</param>
+        [Obsolete("TRANSIT position (latitude/longitude) sentence (GXA) has been designated obsolete by NMEA as of v3.01.")]
         public GxaSentence(string sentence)
             : base(sentence)
         {
