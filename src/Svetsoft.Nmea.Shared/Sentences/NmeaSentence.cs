@@ -355,6 +355,25 @@ namespace Svetsoft.Nmea
         }
 
         /// <summary>
+        ///     Gets a collection of values for a specified index as <see cref="string" /> elemets.
+        /// </summary>
+        /// <param name="index">The zero-based index of the field.</param>
+        /// <param name="count">The number of elements to return.</param>
+        /// <returns>The collection of <see cref="string" /> elements for the specified range.</returns>
+        protected IEnumerable<string> GetString(int index, int count)
+        {
+            while (index < count)
+            {
+                if (string.IsNullOrWhiteSpace(Fields[index]))
+                {
+                    continue;
+                }
+
+                yield return Fields[index++];
+            }
+        }
+
+        /// <summary>
         ///     Gets a collection of values for a specified index as <see cref="Satellite" /> elements.
         /// </summary>
         /// <param name="index">The zero-based index of the field.</param>
